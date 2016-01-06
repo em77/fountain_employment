@@ -1,0 +1,22 @@
+<div class="btn-group" id="order-button">
+  <button type="button" class="btn btn-primary dropdown-toggle"
+    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Order by <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><%= link_to "Company", listings_path(search: params[:search],
+      order: :company_id), method: :get %></li>
+    <li><%= link_to "Job Title", listings_path(search: params[:search],
+      order: :job_title), method: :get %></li>
+    <li><%= link_to "Wage", listings_path(search: params[:search],
+      order: :wage), method: :get %></li>
+    <li><%= link_to "Hours", listings_path(search: params[:search],
+      order: :hours_weekly), method: :get %></li>
+    <li><%= link_to "Shift", listings_path(search: params[:search],
+      order: :shift), method: :get %></li>
+    <li><%= link_to "Start Date", listings_path(search: params[:search],
+      order: :start_date), method: :get %></li>
+    <li><%= link_to "Est. End Date", listings_path(search: params[:search],
+      order: :est_end_date), method: :get %></li>
+  </ul>
+</div>

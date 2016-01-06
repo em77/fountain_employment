@@ -1,0 +1,10 @@
+<%= render "search_bar" %>
+<%= render "dropdown_order" %>
+<table class="table table-striped">
+  <%= render "table_header" %>
+  <% @result.each do |listing| %>
+    <% @found = listing %>
+    <%= render "table_row" %>
+  <% end %>
+</table>
+<center><%= will_paginate @result, renderer: BootstrapPagination::Rails %></center>
