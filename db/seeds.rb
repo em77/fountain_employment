@@ -6,16 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Listing.destroy_all
-Company.destroy_all
+# Listing.destroy_all
+# Company.destroy_all
 
-200.times do
+20.times do
   company = Company.new
   company.name = Faker::Company.name
   company.description = Faker::Company.catch_phrase
   company.save!
   listing = Listing.new
-  listing.member_working = Faker::Name.name
+  # listing.member_working = Faker::Name.name
   listing.job_title = Faker::Company.profession.capitalize
   listing.description = Faker::Commerce.department
   # listing.working_hours_desc = "M-F 9-5"

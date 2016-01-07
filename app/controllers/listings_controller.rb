@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
       flash.now[:error] = "No jobs found with that search - Displaying all" +
         " listings"
     end
+    @result = show_open_jobs if params[:open_jobs]
     @result = orderer(@result, params[:order]) if params[:order]
     @result = paginated(@result)
   end
@@ -26,5 +27,9 @@ class ListingsController < ApplicationController
 
   def orderer(result, order_by)
     result.order(order_by)
+  end
+
+  def show_open_jobs
+    Listing.where(member_working: nil)
   end
 end

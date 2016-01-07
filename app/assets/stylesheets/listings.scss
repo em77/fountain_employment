@@ -1,8 +1,13 @@
 // Place all the styles related to the listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.btn-group#order-button {
+#options {
   float: right;
-  right: 4.75em;
-  bottom: 0.25em;
+  padding-right: 1.5em;
+  padding-bottom: 0.25em;
+}
+
+#search_bar {
+  padding-top: 1em;
+  padding-left: 2em;
 }
