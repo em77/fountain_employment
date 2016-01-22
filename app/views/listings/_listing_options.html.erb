@@ -6,25 +6,46 @@
     </button>
     <ul class="dropdown-menu">
       <li><%= link_to "Company", listings_path(search: params[:search],
-        order: :company_id, open_jobs: params[:open_jobs]), method: :get %></li>
+        order: :company_id, open_jobs: params[:open_jobs],
+        employment_filter: params[:employment_filter]), method: :get %></li>
       <li><%= link_to "Job Title", listings_path(search: params[:search],
-        order: :job_title, open_jobs: params[:open_jobs]), method: :get %></li>
-      <li><%= link_to "Wage", listings_path(search: params[:search],
-        order: :wage, open_jobs: params[:open_jobs]), method: :get %></li>
-      <li><%= link_to "Hours", listings_path(search: params[:search],
-        order: :hours_weekly, open_jobs: params[:open_jobs]), method: :get %></li>
+        order: :job_title, open_jobs: params[:open_jobs], order_direction:
+        "asc", employment_filter: params[:employment_filter]),
+        method: :get %></li>
+      <li><%= link_to "Wage (Lowest to Highest)", listings_path(search:
+        params[:search], order: :wage, order_direction: "asc", open_jobs:
+        params[:open_jobs], employment_filter: params[:employment_filter]),
+        method: :get %></li>
+      <li><%= link_to "- Wage (Highest to Lowest)", listings_path(search:
+        params[:search], order: :wage, order_direction: "desc",
+        open_jobs: params[:open_jobs], employment_filter:
+        params[:employment_filter]), method: :get %></li>
+      <li><%= link_to "Hours/week (Lowest to Highest)", listings_path(search:
+        params[:search], order: :hours_weekly, order_direction: "asc",
+        open_jobs: params[:open_jobs], employment_filter:
+        params[:employment_filter]), method: :get %></li>
+      <li><%= link_to "- Hours/week (Highest to Lowest)", listings_path(search: params[:search], order: :hours_weekly, order_direction: "desc",
+        open_jobs: params[:open_jobs], employment_filter:
+        params[:employment_filter]), method: :get %></li>
       <li><%= link_to "Shift", listings_path(search: params[:search],
-        order: :shift, open_jobs: params[:open_jobs]), method: :get %></li>
+        order: :shift, order_direction: "asc", open_jobs: params[:open_jobs],
+        employment_filter: params[:employment_filter]), method: :get %></li>
       <li><%= link_to "Start Date", listings_path(search: params[:search],
-        order: :start_date, open_jobs: params[:open_jobs]), method: :get %></li>
+        order: :start_date, order_direction: "asc", open_jobs:
+        params[:open_jobs], employment_filter: params[:employment_filter]),
+        method: :get %></li>
       <li><%= link_to "Est. End Date", listings_path(search: params[:search],
-        order: :est_end_date, open_jobs: params[:open_jobs]), method: :get %></li>
+        order: :est_end_date, order_direction: "asc", open_jobs:
+        params[:open_jobs], employment_filter: params[:employment_filter]),
+        method: :get %></li>
     </ul>
   </div>
+
   <div class="btn-group" id="open_jobs">
     <%= link_to "Open Jobs", listings_path(search: params[:search],
-    order: params[:order], open_jobs: true), class: "btn btn-success",
-    method: :get %>
+      order: params[:order], open_jobs: true,
+      employment_filter: params[:employment_filter]), class: "btn btn-success",
+      method: :get %>
   </div>
   <div class="btn-group" id="all_jobs">
     <%= link_to "All Jobs", listings_path(order: params[:order]),

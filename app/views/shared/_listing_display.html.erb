@@ -1,0 +1,12 @@
+<div id="listings_table">
+  <%= render "listing_options" %>
+  <table class="table table-striped">
+    <%= render "table_header" %>
+    <% @result.each do |listing| %>
+      <% @found = listing %>
+      <%= render "table_row" %>
+    <% end %>
+  </table>
+</div>
+
+<center><%= will_paginate @result, renderer: BootstrapPagination::Rails %></center>

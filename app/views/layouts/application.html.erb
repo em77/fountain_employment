@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FountainEmployment</title>
+  <title><%= yield :title %> | Fountain House Employment Hub</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= render "shared/navbar" %>
 
 <% flash.each do |key, value| %>
   <div class="<%= flash_class(key.to_sym) %>">
-    <%= value %>
+    <%= sanitize(value) %>
   </div>
 <% end %>
 
-<%= yield %>
-
 <h6>
   <% if logged_in? %>
-    <%= "Logged in as #{current_user.email}" %>
-    <%= link_to "Logout", logout_path %>
+    <%= link_to "Post New Listing", new_listing_path %>
+    <%= link_to "Administrator Panel", admins_path, class: "admin_header" %>
+    <span>
+      <%= "Logged in as #{current_user.email}" %>
+      <%= link_to "Logout", logout_path %>
+    </span>
   <% else %>
     <%= link_to "Login", login_path %>
   <% end %>
 </h6>
+
+<%= yield %>
 
 </body>
 </html>

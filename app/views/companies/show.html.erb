@@ -1,0 +1,30 @@
+<%= @company.name %>
+<br>
+<!-- Display on company side panel -->
+<div class="logo_medium">
+  <% if @company.logo.exists? %>
+    <%= image_tag @company.logo.url(:medium) %>
+  <% else %>
+    <h2 class="logo_text">The Company that will win</h2>
+  <% end %>
+</div>
+<!-- Now for on social enterprise list -->
+<br>----
+<div class="logo_medium">
+  <% if @company.logo.exists? %>
+    <%= image_tag @company.logo.url(:medium) %>
+  <% else %>
+    <div class="logo_text">
+      <h2>The Company that will win</h2>
+      <h5>The Company that will win is a nonprofit since 1995 working to empower people to type sample text and test if dotdotdot is working correctly. Here's some more sample text to get the div to overflow.</h5>
+    </div>
+  <% end %>
+</div>
+
+
+<%= image_tag @company.logo.url(:thumb), alt: "" %>
+<br>
+<%= link_to "<< Back to Companies", companies_path %>
+| <%= link_to "Edit", edit_company_path(@company) %>
+| <%= link_to "Delete", @company, method: :delete, data: { confirm:
+        "Are you sure you want to delete?" } %>

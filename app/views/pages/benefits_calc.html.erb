@@ -1,0 +1,58 @@
+<% provide(:title, "SSI Benefits Calculator") %>
+
+<div class="page-header">
+  <h1>Supplemental Security Income (SSI) Benefits Calculator</h1>
+  <h1 id="calc_small_heading"><small>See how working will affect your SSI
+    benefits</small></h1>
+</div>
+
+<p>As a member working on a TE or an SE there may be a change in your SSI check.
+  Please use the calculator below to calculate how your benefits will be
+  effected.</p>
+<h4>Things to Remember:</h4>
+<p>• Get a “Start Letter” for any new job at the Employment Resource Center.</p>
+<p>• Turn in copies of your pay stubs to the Social Security office monthly.</p>
+<p>• If you do not bring in pay stubs and/or start letter you may get over paid
+  by social security and receive an overpayment.</p>
+<p>• Get a “Stop Letter” when you are coming off a job or placement from the
+  ERC.</p>
+
+<div id="ssi-calculator">
+  <%= form_tag("/pages/benefits_calc", method: "post", class:
+    "form-group input-lg", remote: true) do %>
+    <div id="slide-toggler"><center>Additional options</center></div>
+    <div id="subtract-num">
+      <div class="instruction-text">To calculate your new SSI check amount, an
+        $85.00 deduction is applied to your Monthly Gross Wages and half the
+        remainder is then subtracted from Your SSI Check. To use a different
+        initial deduction than the default $85.00, please change it below.
+      </div>
+      <br>
+      <%= label_tag(:subtract_num, "Deduction") %>
+      <%= text_field_tag(:subtract_num, "85.00", class: "form-control",
+        required: true) %>
+    </div>
+
+    <div id="primary-fields">
+      <%= label_tag(:amount, "Monthly Gross Wages") %>
+      <%= text_field_tag(:amount, "", class: "form-control", required: true) %>
+      <%= label_tag(:ssi_check, "Your SSI Check") %>
+      <%= text_field_tag(:ssi_check, "", class: "form-control",
+        required: true) %>
+    </div>
+
+    <%= submit_tag("Calculate", class: "btn btn-default btn-primary") %>
+    <p id="new_amount_text"></p>
+    <p id="result"></p>
+  <% end %>
+</div>
+
+<div id="effects-working">
+  <h4>Other effects of working:</h4>
+  <p>• Working may reduce your Food Stamps if you are making more than $150 a
+    month.</p>
+  <p>• Working may affect your rent if you are in Supported Housing Apartment.</p>
+  <p>• Working will not affect your Medicaid but if you lose all your SSI due to
+    work you will need to fill out a form called Medicaid for Working People with
+    Disabilities.</p>
+</div>

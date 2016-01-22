@@ -6,21 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Listing.destroy_all
-# Company.destroy_all
+Listing.destroy_all
+Company.destroy_all
 
-20.times do
+200.times do
   company = Company.new
   company.name = Faker::Company.name
   company.description = Faker::Company.catch_phrase
   company.save!
   listing = Listing.new
-  # listing.member_working = Faker::Name.name
+  listing.member_working = [Faker::Name.name, nil].sample
   listing.job_title = Faker::Company.profession.capitalize
   listing.description = Faker::Commerce.department
   # listing.working_hours_desc = "M-F 9-5"
   listing.hours_weekly = Random.new.rand(500..4000)
   listing.shift = ["Morning", "Afternoon", "Evening", "Overnight"].sample
+  listing.employment_type = ["Transitional", "Supported", "Social Enterprise"].sample
   listing.start_date = Faker::Date.between(Date.today, Faker::Date.forward(30))
   listing.est_end_date = Faker::Date.between(Faker::Date.forward(90), 
     Faker::Date.forward(200))

@@ -1,0 +1,43 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.red {
+  color: red;
+}
+
+#twp_table {
+  width: 300px;
+}
+
+#calc_small_heading {
+  margin-top: -0.4em;
+}
+
+#slide-toggler {
+  background-color: gray;
+}
+
+#subtract-num {
+  display: none;
+}
+
+#ssi-calculator {
+  min-height: 200px;
+}
+
+#primary-fields {
+}
+
+#effects-working {
+}
+
+#new_amount_text {
+  display: inline-block;
+  font-weight: bold;
+}
+
+#result {
+  display: inline-block;
+  font-weight: bold;
+  color: red;
+}

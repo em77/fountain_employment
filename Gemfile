@@ -27,13 +27,20 @@ gem 'sorcery'
 gem 'will_paginate'
 # will_paginate integration with bootstrap
 gem 'will_paginate-bootstrap'
+# Date picker in Bootstrap style
+gem 'bootstrap-datepicker-rails'
 # Fake data generator for testing
 gem 'faker'
 # Unions between multiple ActiveRecord queries
 gem 'active_record_union'
+# Simple Form
+gem 'simple_form'
+
+gem 'rails-jquery-autocomplete'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

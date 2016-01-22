@@ -1,8 +1,12 @@
 class Company < ActiveRecord::Base
-  has_many :listings
+  has_many :listings, inverse_of: :company
+  has_attached_file :logo, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :logo,
+    content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   include PgSearch
   pg_search_scope :search_companies, against: [:name, :description],
                   using: { tsearch: { dictionary: "english" } }
+
   def self.search(search)
     results = Company.search_companies(search)
     return Listing.search_listings("") if results.empty?

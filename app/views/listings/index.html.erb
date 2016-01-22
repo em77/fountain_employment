@@ -1,10 +1,4 @@
-<%= render "search_bar" %>
-<%= render "listing_options" %>
-<table class="table table-striped">
-  <%= render "table_header" %>
-  <% @result.each do |listing| %>
-    <% @found = listing %>
-    <%= render "table_row" %>
-  <% end %>
-</table>
-<center><%= will_paginate @result, renderer: BootstrapPagination::Rails %></center>
+<% javascript_include_tag "side_panel" %>
+
+<%= render "shared/side_panel" %>
+<%= render "shared/listing_display" %>

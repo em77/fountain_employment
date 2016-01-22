@@ -1,13 +1,22 @@
-<tr>
-  <td><center><%= @found.company.name %></center></td>
-  <td><center><%= @found.job_title %></center></td>
-  <td><center><%= @found.description %></center></td>
-  <td><center><%= decimalize(@found.wage) %></center></td>
-  <td><center><%= @found.working_hours_desc %></center></td>
-  <td><center><%= decimalize(@found.hours_weekly) %></center></td>
-  <td><center><%= @found.shift %></center></td>
-  <td><center><%= @found.start_date %></center></td>
-  <td><center><%= @found.est_end_date %></center></td>
-  <td><center><%= @found.te_placement_manager %></center></td>
-  <td><center><%= @found.member_working %></center></td>
+<tr class="table_row">
+  <td><%= link_to @found.company.name, company_path(@found.company_id) %></td>
+  <td><%= @found.job_title %></td>
+  <td><%= @found.description %></td>
+  <td><%= decimalize(@found.wage) %></td>
+  <td><%= @found.working_hours_desc %></td>
+  <td><%= decimalize(@found.hours_weekly) %></td>
+  <td><%= @found.shift %></td>
+  <td><%= @found.employment_type %></td>
+  <td><%= @found.start_date %></td>
+  <td><%= @found.est_end_date %></td>
+  <td><%= @found.te_placement_manager %></td>
+  <% if logged_in? %>
+    <td><%= @found.member_working %></td>
+    <td>
+      <%= link_to "Show", @found %><br>
+      <%= link_to "Edit", edit_listing_path(@found) %><br>
+      <%= link_to "Delete", @found, method: :delete, data: { confirm:
+        "Are you sure you want to delete?" } %>
+    </td>
+  <% end %>
 </tr>

@@ -1,0 +1,6 @@
+<%= form_tag listings_path, id: "search_bar", method: :get,
+  class: "navbar-form navbar-left" do %>
+  <%= text_field_tag :search, params[:search], autofocus: true,
+    placeholder: "Search job listings", size: 40, class: "form-control" %>
+  <%= submit_tag "Search", class: "btn btn-default" %>
+<% end %>

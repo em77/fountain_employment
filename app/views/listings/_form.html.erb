@@ -1,0 +1,78 @@
+<%= form_for(@listing) do |f| %>
+  <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <p><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</p>
+
+      <ul>
+      <% @listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :company_name, "Company Name" %><br>
+    <%= f.hidden_field :company_id, id: "my_company_id" %>
+    <%= f.autocomplete_field :company, autocomplete_company_name_listings_path, 'data-auto-focus': true, id_element: "#my_company_id", class: "form-control",
+      required: true %>
+    <div class="instruction-text">Select the company as it appears while typing</div>
+  </div>
+  <div class="field form-group">
+    <%= f.label :job_title, "Job Title" %><br>
+    <%= f.text_field :job_title, class: "form-control", required: true %>
+    <div class="instruction-text">e.g. Delivery driver</div>
+  </div>
+  <div class="field form-group">
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class: "form-control" %>
+    <div class="instruction-text">e.g. Complete rush deliveries to attorneys</div>
+  </div>
+  <div class="field form-group">
+    <%= f.label :wage %><br>
+    <%= f.text_field :wage, class: "form-control", required: true %>
+    <div class="instruction-text">e.g. 15.00</div>
+  </div>
+  <div class="field form-group">
+    <%= f.label :working_hours_desc, "Schedule" %><br>
+    <%= f.text_field :working_hours_desc, class: "form-control" %>
+    <div class="instruction-text">e.g. M-F 9am-5pm</div>
+  </div>
+  <div class="field form-group">
+    <%= f.label :hours_weekly, "Hours/week" %><br>
+    <%= f.text_field :hours_weekly, class: "form-control", required: true %>
+    <div class="instruction-text">e.g. 40.00</div>
+  </div>
+  <div class="form-group" id="select">
+    <%= f.label :shift %><br>
+    <%= f.select(:shift, ["Morning", "Afternoon", "Evening", "Overnight"],
+      {prompt: "-- Select one --"}, {required: true, class: "form-control"}) %>
+  </div>
+  <div class="form-group" id="select">
+    <%= f.label :employment_type, "Employment Type" %><br>
+    <%= f.select(:employment_type, ["Transitional", "Supported",
+      "Social Enterprise"], {prompt: "-- Select one --"}, {required: true,
+      class: "form-control"}) %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :start_date, "Start Date" %><br>
+    <%= f.text_field :start_date, class: "datepicker", required: true %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :est_end_date, "Est. End Date" %><br>
+    <%= f.text_field :est_end_date, class: "datepicker", required: true %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :te_placement_manager, "TE Placement Manager" %><br>
+    <%= f.text_field :te_placement_manager, class: "form-control", required: true %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :member_working, "Member Working" %><br>
+    <%= f.text_field :member_working, class: "form-control" %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+<% end %>
+
+<script>
+$('.datepicker').datepicker({format: "yyyy-mm-dd"});
+</script>
