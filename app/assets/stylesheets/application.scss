@@ -80,11 +80,20 @@ body {
   text-align: center;
 }
 
+#listings_table {
+  display: table-cell;
+  float: none;
+}
+
 .logo_medium {
-  height: 200px;
-  width: 200px;
+  height: 204px;
+  width: 204px;
   text-align: center;
   border: 2px solid #A3A3A3;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .logo_text {
@@ -95,11 +104,6 @@ body {
 }
 
 // Side Panel
-
-#listings_table {
-  display: table-cell;
-  float: none;
-}
 
 #fade-panel {
   width:230px;

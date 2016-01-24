@@ -1,4 +1,5 @@
 <% javascript_include_tag "side_panel" %>
 
 <%= render "shared/side_panel" %>
-<%= render "shared/listing_display" %>
+
+<%= render partial: "shared/listing_display", locals: {directory: "listings"} %>

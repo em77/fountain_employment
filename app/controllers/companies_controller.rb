@@ -35,6 +35,15 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def destroy_all_listings
+    company_id = params[:id]
+    Listing.where("company_id = ?", company_id).each do |listing|
+      listing.destroy
+    end
+    redirect_back_or_to(company_path(company_id), notice: "All listings for" +
+      " #{Company.find(company_id).name} deleted.")
+  end
+
   rescue_from "ActiveRecord::InvalidForeignKey" do
     message = "Before deleting a company, you must delete all of its job" +
     " listings. To do that, you can click on \"Delete all listings.\""
@@ -43,6 +52,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
+    @result = paginated( Listing.where("company_id = ?", @company.id) )
   end
 
   def update

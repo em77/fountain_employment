@@ -1,5 +1,7 @@
 <tr class="info table_row">
   <td><strong>Company Name</strong></td>
   <td><strong>Description</strong></td>
-  <td><strong>Admin</strong></td>
+  <% if logged_in? %>
+    <td><strong>Admin</strong></td>
+  <% end %>
 </tr>

@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
   
+  resources :companies do
+     collection do
+       delete :destroy_all_listings
+     end
+  end
+
+  # resources :companies, except: [:destroy] do
+  #    collection do
+  #      delete :destroy_all_listings
+  #    end
+  # end
+
   resources :companies
+
   resources :admins
   resources :admin_sessions, only: [:new, :create, :destroy]
 

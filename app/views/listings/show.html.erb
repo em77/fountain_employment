@@ -12,6 +12,8 @@
 <p><span>Member Working:</span> <%= @listing.member_working %></p>
 <br>
 <%= link_to "<< Back to Listings", listings_path %>
-| <%= link_to "Edit", edit_listing_path(@listing) %>
-| <%= link_to "Delete", @listing, method: :delete, data: { confirm:
-        "Are you sure you want to delete?" } %>
+<% if logged_in? %>
+  | <%= link_to "Edit", edit_listing_path(@listing) %>
+  | <%= link_to "Delete", @listing, method: :delete, data: { confirm:
+    "Are you sure you want to delete?" } %>
+<% end %>
