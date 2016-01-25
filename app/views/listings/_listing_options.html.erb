@@ -12,32 +12,81 @@
         order: :job_title, open_jobs: params[:open_jobs], order_direction:
         "asc", employment_filter: params[:employment_filter]),
         method: :get %></li>
-      <li><%= link_to "Wage (Lowest to Highest)", listings_path(search:
-        params[:search], order: :wage, order_direction: "asc", open_jobs:
-        params[:open_jobs], employment_filter: params[:employment_filter]),
-        method: :get %></li>
-      <li><%= link_to "- Wage (Highest to Lowest)", listings_path(search:
-        params[:search], order: :wage, order_direction: "desc",
-        open_jobs: params[:open_jobs], employment_filter:
-        params[:employment_filter]), method: :get %></li>
-      <li><%= link_to "Hours/week (Lowest to Highest)", listings_path(search:
-        params[:search], order: :hours_weekly, order_direction: "asc",
-        open_jobs: params[:open_jobs], employment_filter:
-        params[:employment_filter]), method: :get %></li>
-      <li><%= link_to "- Hours/week (Highest to Lowest)", listings_path(search: params[:search], order: :hours_weekly, order_direction: "desc",
-        open_jobs: params[:open_jobs], employment_filter:
-        params[:employment_filter]), method: :get %></li>
+      <li>
+        <%= link_to listings_path(search:
+          params[:search], order: :wage, order_direction: "asc", open_jobs:
+          params[:open_jobs], employment_filter: params[:employment_filter]),
+          method: :get do %>
+            Wage <span class="glyphicon glyphicon-triangle-top"
+              aria-hidden="true"></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to listings_path(search:
+          params[:search], order: :wage, order_direction: "desc", open_jobs:
+          params[:open_jobs], employment_filter: params[:employment_filter]),
+          method: :get do %>
+            Wage <span class="glyphicon glyphicon-triangle-bottom"
+              aria-hidden="true"></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to listings_path(search:
+          params[:search], order: :hours_weekly, order_direction: "asc",
+          open_jobs: params[:open_jobs], employment_filter:
+          params[:employment_filter]), method: :get do %>
+            Hours/week <span class="glyphicon glyphicon-triangle-top"
+              aria-hidden="true"></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to listings_path(search:
+          params[:search], order: :hours_weekly, order_direction: "desc",
+          open_jobs: params[:open_jobs], employment_filter:
+          params[:employment_filter]), method: :get do %>
+            Hours/week <span class="glyphicon glyphicon-triangle-bottom"
+              aria-hidden="true"></span>
+        <% end %>
+      </li>
       <li><%= link_to "Shift", listings_path(search: params[:search],
         order: :shift, order_direction: "asc", open_jobs: params[:open_jobs],
         employment_filter: params[:employment_filter]), method: :get %></li>
-      <li><%= link_to "Start Date", listings_path(search: params[:search],
-        order: :start_date, order_direction: "asc", open_jobs:
-        params[:open_jobs], employment_filter: params[:employment_filter]),
-        method: :get %></li>
-      <li><%= link_to "Est. End Date", listings_path(search: params[:search],
-        order: :est_end_date, order_direction: "asc", open_jobs:
-        params[:open_jobs], employment_filter: params[:employment_filter]),
-        method: :get %></li>
+      <li>
+        <%= link_to listings_path(search: params[:search],
+          order: :start_date, order_direction: "asc", open_jobs:
+          params[:open_jobs], employment_filter: params[:employment_filter]),
+          method: :get do %>
+            Start Date <span class="glyphicon glyphicon-triangle-top"
+              aria-hidden="true"></span>
+          <% end %>
+      </li>
+      <li>
+        <%= link_to listings_path(search: params[:search],
+          order: :start_date, order_direction: "desc", open_jobs:
+          params[:open_jobs], employment_filter: params[:employment_filter]),
+          method: :get do %>
+            Start Date <span class="glyphicon glyphicon-triangle-bottom"
+              aria-hidden="true"></span>
+          <% end %>
+      </li>
+      <li>
+        <%= link_to listings_path(search: params[:search],
+          order: :est_end_date, order_direction: "asc", open_jobs:
+          params[:open_jobs], employment_filter: params[:employment_filter]),
+          method: :get do %>
+            Est. End Date <span class="glyphicon glyphicon-triangle-top"
+              aria-hidden="true"></span>
+          <% end %>
+      </li>
+      <li>
+        <%= link_to listings_path(search: params[:search],
+          order: :est_end_date, order_direction: "desc", open_jobs:
+          params[:open_jobs], employment_filter: params[:employment_filter]),
+          method: :get do %>
+            Est. End Date <span class="glyphicon glyphicon-triangle-bottom"
+              aria-hidden="true"></span>
+          <% end %>
+      </li>
     </ul>
   </div>
 

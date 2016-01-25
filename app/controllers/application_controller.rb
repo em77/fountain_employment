@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def paginated(to_paginate)
-    to_paginate.paginate(:page => params[:page], :per_page => 25)
+  def paginated(to_paginate, num_per_page = 25)
+    to_paginate.paginate(page: params[:page], per_page: num_per_page)
   end
 
   def orderer(result, order_by, order_direction = "asc")
