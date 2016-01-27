@@ -14,7 +14,7 @@ class ListingsController < ApplicationController
       flash.now[:error] = "No jobs found with that search - Displaying all" +
         " listings"
     end
-    @result = show_open_jobs if params[:open_jobs]
+    @result = show_open_jobs(@result) if params[:open_jobs]
     @result = employment_filterer(@result, params[:employment_filter]) if
       params[:employment_filter]
     @result = orderer(@result, params[:order], params[:order_direction]) if
@@ -49,7 +49,7 @@ class ListingsController < ApplicationController
       redirect_to(listing_path(@listing), notice: "Listing edited successfully")
     else
       flash[:error] = @listing.errors.full_messages.to_sentence
-      redirect_back_or_to(edit_listing_path(@listing))
+      redirect_to(edit_listing_path(@listing))
     end
   end
 
@@ -73,7 +73,7 @@ class ListingsController < ApplicationController
       redirect_to(listings_path, notice: "Listing created successfully")
     else
       flash[:error] = @listing.errors.full_messages.to_sentence
-      redirect_back_or_to(new_listing_path)
+      redirect_to(new_listing_path)
     end
   end
 
@@ -85,17 +85,13 @@ class ListingsController < ApplicationController
     " the company, ensure correct spelling by typing in the name and" +
     " selecting it when it appears."
     flash[:error] = message
-    redirect_back_or_to(new_listing_path)
+    redirect_to(new_listing_path)
   end
 
   def search_companies_and_listings(param)
     listings = Listing.search(param)
     company_listings = Company.search(param)
     listings.union(company_listings)
-  end
-
-  def show_open_jobs
-    Listing.where(member_working: nil)
   end
 
   def employment_filterer(listings, filter)

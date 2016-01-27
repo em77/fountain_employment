@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
     end
     result_ordered
   end
+
+  def show_open_jobs(result)
+    result.where(member_working: nil)
+  end
 end

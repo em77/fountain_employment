@@ -19,7 +19,7 @@ class CompaniesController < ApplicationController
       redirect_to(companies_path, notice: "Company created successfully")
     else
       flash[:error] = @company.errors.full_messages.to_sentence
-      redirect_back_or_to(new_company_path)
+      redirect_to(new_company_path)
     end
   end
 
@@ -40,7 +40,7 @@ class CompaniesController < ApplicationController
     Listing.where("company_id = ?", company_id).each do |listing|
       listing.destroy
     end
-    redirect_back_or_to(company_path(company_id), notice: "All listings for" +
+    redirect_to(company_path(company_id), notice: "All listings for" +
       " #{Company.find(company_id).name} deleted.")
   end
 
@@ -48,11 +48,15 @@ class CompaniesController < ApplicationController
     message = "Before deleting a company, you must delete all of its job" +
     " listings. To do that, you can click on \"Delete all listings.\""
     flash[:error] = message
-    redirect_back_or_to(company_path(@company))
+    redirect_to(company_path(@company))
   end
 
   def show
-    @result = paginated( Listing.where("company_id = ?", @company.id) )
+    @result = Listing.where("company_id = ?", @company.id)
+    @result = show_open_jobs(@result) if params[:open_jobs]
+    @result = orderer(@result, params[:order], params[:order_direction]) if
+      params[:order]
+    @result = paginated(@result)
   end
 
   def update
@@ -62,7 +66,7 @@ class CompaniesController < ApplicationController
       redirect_to(company_path(@company), notice: "Company edited successfully")
     else
       flash[:error] = @company.errors.full_messages.to_sentence
-      redirect_back_or_to(edit_company_path(@company))
+      redirect_to(edit_company_path(@company))
     end
   end
 

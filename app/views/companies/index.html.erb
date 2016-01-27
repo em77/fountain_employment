@@ -1,19 +1,6 @@
 <div id="company_box_display">
-  <% @result.each do |company| %>
-    <div class="logo_medium">
-      <% if company.logo.exists? %>
-        <div class="logo_text">
-          <%= image_tag company.logo.url(:thumb) %>
-          <h5><%= company.description %></h5>
-        </div>
-      <% else %>
-        <div class="logo_text">
-          <h2><%= company.name %></h2>
-          <h5><%= company.description %></h5>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render partial: "shared/company_logos_display_block", locals: {result:
+    @result} %>
 </div>
 
 <center>

@@ -11,7 +11,8 @@
   <h3><%= @company.description %></h3>
 <% end %>
 
-<%= render partial: "shared/listing_display", locals: {directory: "listings"} %>
+<%= render partial: "shared/listing_display", locals: {directory: "listings",
+  directory_table: "companies"} %>
 
 <br>
 <%= link_to "<< Back to Companies", companies_path %>

@@ -1,10 +1,10 @@
-<div id="listings_table">
+<div id="listings_table" class="table-responsive">
   <%= render "#{directory}/listing_options" %>
   <table class="table table-striped">
-    <%= render "#{directory}/table_header" %>
+    <%= render "#{directory_table}/table_header" %>
     <% @result.each do |listing| %>
       <% @found = listing %>
-      <%= render "#{directory}/table_row" %>
+      <%= render "#{directory_table}/table_row" %>
     <% end %>
   </table>
 </div>

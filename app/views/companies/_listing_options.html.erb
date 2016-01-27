@@ -1,6 +1,8 @@
-<div id="options">
-  <div class="btn-group" id="order_by_name">
-    <%= link_to "Order By Name", companies_path(search: params[:search],
-      order: :name), class: "btn btn-default btn-primary", method: :get %>
+ <% if false %> 
+  <div id="options">
+    <div class="btn-group" id="order_by_name">
+      <%= link_to "Order By Name", companies_path(search: params[:search],
+        order: :name), class: "btn btn-default btn-primary", method: :get %>
+    </div>
   </div>
-</div>
+<% end %>

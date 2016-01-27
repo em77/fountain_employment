@@ -1,0 +1,16 @@
+<% result.each do |company| %>
+    <%= link_to company_path(company),
+      class: "logo_medium btn btn-info " + yield do %>
+      <% if company.logo.exists? %>
+        <div class="logo_text">
+          <%= image_tag company.logo.url(:thumb) %>
+          <h5><%= company.description %></h5>
+        </div>
+      <% else %>
+        <div class="logo_text">
+          <h2><%= company.name %></h2>
+          <h5><%= company.description %></h5>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>

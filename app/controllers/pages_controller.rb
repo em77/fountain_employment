@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
-  def home  
+  def home
+    @first = [Company.first]
+    @result = Company.all[1..-1]
   end
 
   def b_1619

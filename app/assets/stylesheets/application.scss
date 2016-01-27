@@ -103,13 +103,17 @@ body {
   transform: translateY(-55%);
 }
 
+.table-responsive {
+  overflow-x: auto;
+}
+
 // Side Panel
 
 #fade-panel {
   width:230px;
   // height:100%;
   // padding:10px;
-  background:#eee;
+  background:#F7F7F7;
   // margin-left:0px;
   float: none;
   max-width: 300px;
