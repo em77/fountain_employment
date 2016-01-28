@@ -1,37 +1,45 @@
 <% provide(:title, "Subsidy or Special Condition") %>
 
-<div class="page-header">
-  <h1>Subsidy or Special Condition</h1>
+<% javascript_include_tag "side_panel" %>
+
+<%= render "shared/side_panel_opener" %>
+
+<%= render layout: "shared/side_panel" do %>
+  <h1>
+    Subsidy or Special Condition
+  </h1>
+<% end %>
+
+<div class="page_content_box">
+  <h4>What is considered a subsidy or special condition?</h4>
+  <p>Subsidies and/or special conditions are considered when a substantial gainful
+    activity (SGA) is made. Earning that represent the real value of the work you
+    perform are used to decide if your work is SGA level.</p>
+  <h4>What is a subsidy?</h4>
+  <p>A “subsidy” is a support provided by your employer that may result in your
+    receiving more than the actual value of the services you perform.</p>
+  <h4>What is a special condition?</h4>
+  <p>“Special condition” refers to support and on the job assistance provided by
+    your employer, a vocational rehabilitation agency. Because of this support,
+    you may receive more pay than the actual value of the serviced you perform.
+    </p>
+  <h4>How can you tell if subsidies or special conditions apply to you?</h4>
+  <p>A subsidy or special condition may exist if one of the following is true:</p>
+  <ul class="list-group">
+  <li class="list-group-item">• You receive more supervision than other workers
+    doing the same or similar job for the same pay.</li>
+  <li class="list-group-item">• You have fewer or simpler task to complete than
+    other workers doing the same job for the same pay.</li>
+  <li class="list-group-item">• You are given additional or longer paid breaks
+    than other workers doing the same job for the same pay.</li>
+  <li class="list-group-item">• You have a job coach or mentor who helps you
+    perform some of your work.</li>
+  </ul>
+  <h4>Do subsidies or special conditions affect my SSI payments?</h4>
+  <p>No.  Subsidies and special conditions are not considered when figuring out
+    your SSI payment amount.</p>
+
+  <p class="red">For more information on Subsidies and Special Condition please
+    visit the <%= link_to "Social Security Administration", "https://www.ssa.gov"
+    %></p>
 </div>
-
-<h4>What is considered a subsidy or special condition?</h4>
-<p>Subsidies and/or special conditions are considered when a substantial gainful
-  activity (SGA) is made. Earning that represent the real value of the work you
-  perform are used to decide if your work is SGA level.</p>
-<h4>What is a subsidy?</h4>
-<p>A “subsidy” is a support provided by your employer that may result in your
-  receiving more than the actual value of the services you perform.</p>
-<h4>What is a special condition?</h4>
-<p>“Special condition” refers to support and on the job assistance provided by
-  your employer, a vocational rehabilitation agency. Because of this support,
-  you may receive more pay than the actual value of the serviced you perform.
-  </p>
-<h4>How can you tell if subsidies or special conditions apply to you?</h4>
-<p>A subsidy or special condition may exist if one of the following is true:</p>
-<ul class="list-group">
-<li class="list-group-item">• You receive more supervision than other workers
-  doing the same or similar job for the same pay.</li>
-<li class="list-group-item">• You have fewer or simpler task to complete than
-  other workers doing the same job for the same pay.</li>
-<li class="list-group-item">• You are given additional or longer paid breaks
-  than other workers doing the same job for the same pay.</li>
-<li class="list-group-item">• You have a job coach or mentor who helps you
-  perform some of your work.</li>
-</ul>
-<h4>Do subsidies or special conditions affect my SSI payments?</h4>
-<p>No.  Subsidies and special conditions are not considered when figuring out
-  your SSI payment amount.</p>
-
-<p class="red">For more information on Subsidies and Special Condition please
-  visit the <%= link_to "Social Security Administration", "https://www.ssa.gov"
-  %></p>

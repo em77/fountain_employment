@@ -35,5 +35,5 @@ Rails.application.routes.draw do
   get "pages/benefits_calc"
   post "pages/benefits_calc"
 
-  root to: "listings#index"
+  root to: "pages#home"
 end

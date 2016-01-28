@@ -80,9 +80,14 @@ body {
   text-align: center;
 }
 
+#outer_wrapper {
+  display: table;
+  min-width: 100%;
+}
+
 #listings_table {
   display: table-cell;
-  float: none;
+  // float: none;
 }
 
 .logo_medium {
@@ -107,14 +112,24 @@ body {
   overflow-x: auto;
 }
 
+.side_panel_desc {
+  position: relative;
+  top: -30px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.side_panel_heading {
+  position: relative;
+  top: -30px;
+  padding-bottom: 20px;
+}
+
 // Side Panel
 
 #fade-panel {
-  width:230px;
-  // height:100%;
-  // padding:10px;
+  min-width:230px;
   background:#F7F7F7;
-  // margin-left:0px;
   float: none;
   max-width: 300px;
   display: table-cell;

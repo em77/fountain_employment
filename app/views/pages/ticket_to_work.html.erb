@@ -1,30 +1,38 @@
 <% provide(:title, "Ticket To Work (TTW)") %>
 
-<div class="page-header">
-  <h1>Ticket To Work (TTW)</h1>
+<% javascript_include_tag "side_panel" %>
+
+<%= render "shared/side_panel_opener" %>
+
+<%= render layout: "shared/side_panel" do %>
+  <h1>
+    Ticket To Work (TTW)
+  </h1>
+<% end %>
+
+<div class="page_content_box">
+  <h4>What is Ticket to Work (TTW)?</h4>
+  <p>Social Security’s Ticket to Work is a free and voluntary program for people
+    who are ages 18 through 64 and receive Social Security Disability Insurance (SSDI)
+    or Supplemental Security Income (SSI) benefits because they are disabled or blind.</p>
+  <h4>What are the Advantages of the Ticket to Work Program?</h4>
+  <p>While participating in Ticket to Work, beneficiaries can get help they need
+    to safely explore their work options without immediately losing their benefits
+    and find the job that is right for them. Beneficiaries also can use combinations
+    of work, incentives to maximize their income until they begin to earn enough
+    to support themselves.</p>
+  <p>Therefore the individual can:</p>
+  <ul class="list-group">
+  <li class="list-group-item">• Go to work without automatically losing disability
+    benefits.</li>
+  <li class="list-group-item">• Return to benefits if he or she had to stop
+    working.</li>
+  <li class="list-group-item">• Continue to receive healthcare benefits.</li>
+  <li class="list-group-item">• Be protected from receiving a medical continuing
+    review while using TTW and making the expected progress with work or
+    educational works.</li>
+  </ul>
+
+  <p class="red">For more information on Ticket to Work please visit the <%= 
+    link_to "Social Security Administration", "https://www.ssa.gov" %></p>
 </div>
-
-<h4>What is Ticket to Work (TTW)?</h4>
-<p>Social Security’s Ticket to Work is a free and voluntary program for people
-  who are ages 18 through 64 and receive Social Security Disability Insurance (SSDI)
-  or Supplemental Security Income (SSI) benefits because they are disabled or blind.</p>
-<h4>What are the Advantages of the Ticket to Work Program?</h4>
-<p>While participating in Ticket to Work, beneficiaries can get help they need
-  to safely explore their work options without immediately losing their benefits
-  and find the job that is right for them. Beneficiaries also can use combinations
-  of work, incentives to maximize their income until they begin to earn enough
-  to support themselves.</p>
-<p>Therefore the individual can:</p>
-<ul class="list-group">
-<li class="list-group-item">• Go to work without automatically losing disability
-  benefits.</li>
-<li class="list-group-item">• Return to benefits if he or she had to stop
-  working.</li>
-<li class="list-group-item">• Continue to receive healthcare benefits.</li>
-<li class="list-group-item">• Be protected from receiving a medical continuing
-  review while using TTW and making the expected progress with work or
-  educational works.</li>
-</ul>
-
-<p class="red">For more information on Ticket to Work please visit the <%= 
-  link_to "Social Security Administration", "https://www.ssa.gov" %></p>

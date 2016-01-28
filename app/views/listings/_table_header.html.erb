@@ -6,7 +6,9 @@
   <td><strong>Schedule</strong></td>
   <td><strong>Hours/week</strong></td>
   <td><strong>Shift</strong></td>
-  <td><strong>Employment Type</strong></td>
+  <% unless params[:employment_filter] %>
+    <td><strong>Employment Type</strong></td>
+  <% end %>
   <td><strong>Start Date</strong></td>
   <td><strong>Est. End Date</strong></td>
   <td><strong>TE Placement Manager</strong></td>

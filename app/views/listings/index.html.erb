@@ -1,2 +1,37 @@
-<%= render partial: "shared/listing_display", locals: {directory: "listings",
-  directory_table: "listings"} %>
+<% javascript_include_tag "side_panel" %>
+
+<%= render "shared/side_panel_opener" %>
+
+<div id="outer_wrapper">
+  <%= render layout: "shared/side_panel" do %>
+    <% case params[:employment_filter] %>
+    <% when "Social Enterprise" %>
+      <h1 class="side_panel_heading">Social Enterprises</h1>
+      <h5 class="side_panel_desc">
+        Fountain House recently launched a social enterprise and social
+        cooperative program designed to create alternative employment
+        opportunities and encourage entrepreneurship among members.
+        <br><br>
+        Social enterprise achieves a double bottom-line. It offers affordable,
+        top-quality services to clients while providing employees from
+        traditionally marginalized populations with the opportunity to enter the
+        workforce and obtain invaluable job skills.  Through innovative and
+        entrepreneurial ventures, members learn industry specific skills that are
+        transferable in the marketplace.
+      </h5>
+    <% when "Transitional" %>
+      <h1 class="side_panel_heading">Transitional Employment</h1>
+    <% when "Supported" %>
+      <h1 class="side_panel_heading">Supported Employment</h1>
+    <% else %>
+      <h1 class="side_panel_heading">All Listings</h1>
+    <% end %>
+  <% end %>
+
+  <%= render partial: "shared/listing_display", locals: {directory: "listings",
+    directory_table: "listings"} %>
+</div>
+
+<center>
+  <%= will_paginate @result, renderer: BootstrapPagination::Rails %>
+</center>

@@ -1,3 +1,11 @@
- <div id="company_carousel_container"> 
-  <%= render "company_carousel" %>
+<div id="home_wrapper">
+  <div id="company_carousel_container"> 
+    <%= render "company_carousel" %>
+  </div>
+
+  <%= link_to listings_path, class: "logo_medium btn btn-info" do %>
+    <div class="logo_text" id="jobs_button">
+      <h1>Current and Upcoming Openings</h1>
+    </div>
+  <% end %>
 </div>

@@ -15,6 +15,8 @@
   </div>
 <% end %>
 
+<%= yield %>
+
 <h6>
   <% if logged_in? %>
     <%= link_to "Post New Listing", new_listing_path %>
@@ -27,8 +29,6 @@
     <%= link_to "Login", login_path %>
   <% end %>
 </h6>
-
-<%= yield %>
 
 </body>
 </html>

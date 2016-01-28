@@ -6,7 +6,9 @@
   <td><%= @found.working_hours_desc %></td>
   <td><%= decimalize(@found.hours_weekly) %></td>
   <td><%= @found.shift %></td>
-  <td><%= @found.employment_type %></td>
+  <% unless params[:employment_filter] %>
+    <td><%= @found.employment_type %></td>
+  <% end %>
   <td><%= @found.start_date %></td>
   <td><%= @found.est_end_date %></td>
   <td><%= @found.te_placement_manager %></td>
