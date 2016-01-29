@@ -17,7 +17,7 @@
 
 <%= yield %>
 
-<h6>
+<h6 id="footer">
   <% if logged_in? %>
     <%= link_to "Post New Listing", new_listing_path %>
     <%= link_to "Administrator Panel", admins_path, class: "admin_header" %>

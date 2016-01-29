@@ -1,11 +1,28 @@
-<div id="home_wrapper">
+<div id="logo_greeting_wrapper">
+  <div id="home_fh_logo">
+    <img src="<%= image_path("fountain_house_logo_lg.jpg") %>">
+  </div>
+
+  <h2 id="greeting">
+    Welcome to the Employment Hub
+    <br>
+    <small>
+      Utilize the navigation bar above to move throughout the site
+    </small>
+  </h2>
+</div>
+
+
+<div id="buttons_wrapper">
   <div id="company_carousel_container"> 
     <%= render "company_carousel" %>
   </div>
 
-  <%= link_to listings_path, class: "logo_medium btn btn-info" do %>
-    <div class="logo_text" id="jobs_button">
-      <h1>Current and Upcoming Openings</h1>
-    </div>
-  <% end %>
+  <div id="jobs_button">
+    <%= link_to listings_path, class: "logo_medium btn btn-info" do %>
+      <div class="logo_text">
+        <h2>Current and Upcoming Openings</h2>
+      </div>
+    <% end %>
+  </div>
 </div>

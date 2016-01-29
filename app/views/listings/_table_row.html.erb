@@ -20,5 +20,12 @@
       <%= link_to "Delete", @found, method: :delete, data: { confirm:
         "Are you sure you want to delete?" } %>
     </td>
+  <% else %>
+    <% case @found.member_working %>
+    <% when nil %>
+      <td>Yes</td>
+    <% else %>
+      <td>No</td>
+    <% end %>
   <% end %>
 </tr>

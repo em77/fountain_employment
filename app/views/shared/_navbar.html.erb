@@ -9,10 +9,16 @@
 
     <%= render "shared/search_bar" %>
 
-    <div id="dropdown_container">
-      <div class="btn-group dropdown-button">
+    <div id="buttons_container">
+      <div class="btn-group navbar-button" id="companies_link">
+        <%= link_to "Companies", companies_path, class:
+          "btn btn-default btn-info", method: :get %>
+      </div>
+    
+      <div class="btn-group navbar-button">
         <button type="button" class="btn btn-info dropdown-toggle"
-         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          id="ss_dropdown" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
           Social Security Benefits <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
@@ -31,7 +37,7 @@
         </ul>
       </div>
 
-      <div class="btn-group dropdown-button">
+      <div class="btn-group navbar-button" id="employment_type_dropdown">
         <button type="button" class="btn btn-info dropdown-toggle"
          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Employment Type <span class="caret"></span>
