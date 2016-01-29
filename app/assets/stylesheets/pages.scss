@@ -20,7 +20,7 @@
 }
 
 #slide-toggler {
-  background-color: gray;
+  background-color: #F7F7F7;
 }
 
 #subtract-num {
@@ -29,6 +29,17 @@
 
 #ssi-calculator {
   min-height: 210px;
+}
+
+#ssi-calculator .btn-primary {
+  margin-top: 7px;
+  float: left;
+}
+
+#result-container {
+  float: left;
+  margin-top: 10px;
+  margin-left: 30px;
 }
 
 #primary-fields {
