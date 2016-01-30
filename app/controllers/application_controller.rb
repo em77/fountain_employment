@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
   def show_open_jobs(result)
     result.where(member_working: nil)
   end
+
+  def set_referer
+    session[:return_to] ||= request.referer
+  end
 end

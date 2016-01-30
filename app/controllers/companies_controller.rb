@@ -16,7 +16,8 @@ class CompaniesController < ApplicationController
     @company.save
     if @company.valid?
       @company.save
-      redirect_to(companies_path, notice: "Company created successfully")
+      redirect_to(company_path(@company), notice:
+        "Company created successfully")
     else
       flash[:error] = @company.errors.full_messages.to_sentence
       redirect_to(new_company_path)
@@ -37,11 +38,12 @@ class CompaniesController < ApplicationController
 
   def destroy_all_listings
     company_id = params[:id]
+    company = Company.find(company_id)
     Listing.where("company_id = ?", company_id).each do |listing|
       listing.destroy
     end
-    redirect_to(company_path(company_id), notice: "All listings for" +
-      " #{Company.find(company_id).name} deleted.")
+    redirect_to(company_path(company), notice: "All listings for" +
+      " #{company.name} deleted.")
   end
 
   rescue_from "ActiveRecord::InvalidForeignKey" do

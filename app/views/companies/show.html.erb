@@ -32,32 +32,9 @@
 </center>
 
 <br>
-<%= link_to "<< Back to Companies", companies_path %>
 <% if logged_in? %>
-  | <%= link_to "Edit", edit_company_path(@company) %>
+  <%= link_to "Edit", edit_company_path(@company) %>
   | <%= link_to "Delete", @company, method: :delete, data: { confirm:
   "Are you sure you want to delete?" } %>
-<% end %>
-
-<% if false %>
-  <!-- Display on company side panel -->
-  <div class="logo_medium">
-    <% if @company.logo.exists? %>
-      <%= image_tag @company.logo.url(:medium) %>
-    <% else %>
-      <h2 class="logo_text"><%= @company.name %></h2>
-    <% end %>
-  </div>
-  <!-- Now for on social enterprise list -->
-  <br>----
-  <div class="logo_medium">
-    <% if @company.logo.exists? %>
-      <%= image_tag @company.logo.url(:medium) %>
-    <% else %>
-      <div class="logo_text">
-        <h2><%= @company.name %></h2>
-        <h5><%= @company.description %></h5>
-      </div>
-    <% end %>
-  </div>
+  | <%= link_to "Delete All Listings", destroy_all_listings_companies_path(id: @company.id), method: :delete, data: { confirm: "Are you sure you want to delete all listings for this company?" } %>
 <% end %>

@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :set_referer, only: [:destroy, :edit, :new]
   autocomplete :company, :name
   include ApplicationHelper
 
@@ -38,8 +39,8 @@ class ListingsController < ApplicationController
   def destroy
     @listing.destroy
     respond_to do |format|
-      format.html { redirect_to listings_url, notice:
-        "Listing was successfully deleted." }
+      format.html { redirect_to(session.delete(:return_to), notice:
+        "Listing was successfully deleted.") }
       format.json { head :no_content }
     end
   end
@@ -49,10 +50,11 @@ class ListingsController < ApplicationController
     @listing.update(article_params)
     if @listing.valid?
       @listing.update(article_params)
-      redirect_to(listing_path(@listing), notice: "Listing edited successfully")
+      redirect_to(session.delete(:return_to), notice:
+        "Listing edited successfully")
     else
       flash[:error] = @listing.errors.full_messages.to_sentence
-      redirect_to(edit_listing_path(@listing))
+      redirect_to(session.delete(:return_to))
     end
   end
 
@@ -72,10 +74,11 @@ class ListingsController < ApplicationController
     @listing.member_working = params[:listing][:member_working]
     if @listing.valid?
       @listing.save
-      redirect_to(listings_path, notice: "Listing created successfully")
+      redirect_to(session.delete(:return_to), notice:
+        "Listing created successfully")
     else
       flash[:error] = @listing.errors.full_messages.to_sentence
-      redirect_to(new_listing_path)
+      redirect_to(session.delete(:return_to))
     end
   end
 

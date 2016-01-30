@@ -6,12 +6,6 @@ Rails.application.routes.draw do
      end
   end
 
-  # resources :companies, except: [:destroy] do
-  #    collection do
-  #      delete :destroy_all_listings
-  #    end
-  # end
-
   resources :companies
 
   resources :admins
