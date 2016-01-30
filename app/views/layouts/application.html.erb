@@ -17,18 +17,7 @@
 
 <%= yield %>
 
-<h6 id="footer">
-  <% if logged_in? %>
-    <%= link_to "Post New Listing", new_listing_path %>
-    <%= link_to "Administrator Panel", admins_path, class: "admin_header" %>
-    <span>
-      <%= "Logged in as #{current_user.email}" %>
-      <%= link_to "Logout", logout_path %>
-    </span>
-  <% else %>
-    <%= link_to "Login", login_path %>
-  <% end %>
-</h6>
+<%= render "shared/footer" %>
 
 </body>
 </html>

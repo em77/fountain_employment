@@ -9,10 +9,13 @@ class ListingsController < ApplicationController
     else
       @result = search_companies_and_listings(params[:search])
     end
-    if @result.empty?
-      @result = Listing.all
+    if @result.empty? && params[:search]
       flash.now[:error] = "No jobs found with that search - Displaying all" +
         " listings"
+      @result = Listing.all
+    elsif @result.empty?
+      flash.now[:error] = "Displaying all listings"
+      @result = Listing.all
     end
     @result = show_open_jobs(@result) if params[:open_jobs]
     @result = employment_filterer(@result, params[:employment_filter]) if
@@ -55,7 +58,6 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(article_params)
-    # @listing.company_id = params[:listing][:my_company_id]
     @listing.job_title = params[:listing][:job_title]
     @listing.company_id = params[:listing][:company_id]
     @listing.description = params[:listing][:description]
@@ -78,13 +80,7 @@ class ListingsController < ApplicationController
   end
 
   rescue_from "ActiveRecord::InvalidForeignKey" do
-    message = "The company name entered doesn't exist. You must first" +
-    " create a company with the" +
-    " <a href='#{new_company_path}'>New Company</a>" +
-    " form before you can create listings for it. If you already created" +
-    " the company, ensure correct spelling by typing in the name and" +
-    " selecting it when it appears."
-    flash[:error] = message
+    flash[:error] = Listing.company_field_error_message
     redirect_to(new_listing_path)
   end
 

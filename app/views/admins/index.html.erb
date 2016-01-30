@@ -1,9 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%= link_to "Post New Listing", new_listing_path %></h3>
-
-<hr>
-
 <h3>Administrator List</h3>
 
 <table class="table table-striped">
@@ -20,7 +16,7 @@
         <td><%= admin.email %></td>
         <td><%= link_to "Show", admin %></td>
         <td><%= link_to "Edit", edit_admin_path(admin) %></td>
-        <td><%= link_to "Destroy", admin, method: :delete, data: { confirm:
+        <td><%= link_to "Delete", admin, method: :delete, data: { confirm:
           "Are you sure you want to delete?" } %></td>
       </tr>
     <% end %>

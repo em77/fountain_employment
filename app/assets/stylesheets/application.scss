@@ -52,6 +52,7 @@
 
 body {
   padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 .navbar-brand {
@@ -71,7 +72,12 @@ body {
   padding-right: 5px;
 }
 
-.admin_header {
+.navbar-fixed-bottom .container-fluid {
+  float: right;
+  margin-top: 17px;
+}
+
+.footer_link {
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -125,7 +131,8 @@ body {
 // Side Panel
 
 .fade-panel {
-  min-width:230px;
+  min-width: 230px;
+  height: 300px;
   background:#F7F7F7;
   float: none;
   max-width: 300px;

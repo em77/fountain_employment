@@ -1,7 +1,16 @@
 class PagesController < ApplicationController
   def home
-    @first = [Company.first]
-    @result = Company.all[1..-1]
+    unless Company.count < 2
+      @first = [Company.first]
+      @result = Company.all[1..-1]
+    else
+      @first = Company.new
+      @first.id = 1
+      @first.name = "Sample Company"
+      @first.description = "Sample Description"
+      @first = [@first]
+      @result = @first[1..-1]
+    end
   end
 
   def b_1619
