@@ -1,4 +1,6 @@
-var finalResult = "<%= amount_calculator(params["amount"], params["ssi_check"],\
-  params["subtract_num"]) %>";
+var finalResult = <%= raw ssi_calc(params["weekly_hours"], params["wage"],
+  params["ssi_check"], params["subtract_num"]).to_json %>
 $("#new_amount_text").html("New SSI Amount: ");
-$("#result").html(finalResult);
+$("#result").html(finalResult[0]);
+$("#wage_ssi_total").html("Monthly Income (Including SSI): ");
+$("#total_result").html(finalResult[1]);

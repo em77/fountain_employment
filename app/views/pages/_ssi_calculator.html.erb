@@ -1,0 +1,36 @@
+<div id="ssi-calculator">
+  <%= form_tag("/pages/benefits_calc", method: "post", class:
+    "form-group input-lg", remote: true) do %>
+    <div id="slide-toggler"><center>Additional options</center></div>
+    <div id="subtract-num">
+      <div class="instruction-text">To calculate your new SSI check amount, an
+        $85.00 deduction is applied to your Monthly Gross Wages and half the
+        remainder is then subtracted from Your SSI Check. To use a different
+        initial deduction than the default $85.00, please change it below.
+      </div>
+      <br>
+      <%= label_tag(:subtract_num, "Deduction") %>
+      <%= text_field_tag(:subtract_num, "85.00", class: "form-control",
+        required: true) %>
+    </div>
+
+    <div id="primary-fields">
+      <%= label_tag(:wage, "Hourly Wage") %>
+      <%= text_field_tag(:wage, "", class: "form-control", required: true) %>
+      <%= label_tag(:weekly_hours, "Weekly Hours") %>
+      <%= text_field_tag(:weekly_hours, "", class: "form-control",
+        required: true) %>
+      <%= label_tag(:ssi_check, "Your SSI Check") %>
+      <%= text_field_tag(:ssi_check, "", class: "form-control",
+        required: true) %>
+    </div>
+
+    <%= submit_tag("Calculate", class: "btn btn-default btn-primary") %>
+    <div id="result-container">
+      <p id="new_amount_text"></p>
+      <p id="result"></p>
+      <p id="wage_ssi_total"></p>
+      <p id="total_result"></p>
+    </div>
+  <% end %>
+</div>

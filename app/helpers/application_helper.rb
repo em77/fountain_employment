@@ -25,14 +25,30 @@ module ApplicationHelper
     result
   end
 
-  def amount_calculator(amount, ssi_check, subtract_num)
-    temp = decimal_to_int(amount.to_s)
+  def monthly_wages_calculator(weekly_hours, wage)
+    result = (decimal_to_int(weekly_hours)/100.0) * decimal_to_int(wage) * 4
+    result.to_i
+  end
+
+  def ssi_amount_calculator(amount, ssi_check, subtract_num)
+    temp = amount
     deduction = temp - decimal_to_int(subtract_num.to_s)
     deduction = 0 if deduction < 0
     result = deduction / 2
     result = 0 if result < 0
     temp = decimal_to_int(ssi_check.to_s) - result
     temp = 0 if temp < 0
-    decimalize(temp)
+    temp
+  end
+
+  def ssi_calc(weekly_hours, wage, ssi_check, subtract_num)
+    result = Array.new
+    monthly_wages = monthly_wages_calculator(weekly_hours, wage)
+    result[0] = ssi_amount_calculator(monthly_wages,
+      ssi_check, subtract_num)
+    result[1] = result[0] + monthly_wages
+    result[0] = decimalize(result[0])
+    result[1] = decimalize(result[1])
+    result
   end
 end

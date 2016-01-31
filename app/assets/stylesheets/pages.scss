@@ -5,13 +5,13 @@
   color: red;
 }
 
-#twp_table {
+.twp_table {
   width: 300px;
   margin-left: auto;
   margin-right: auto;
 }
 
-#twp_table_heading {
+.twp_table_heading {
   text-align: center;
 }
 
@@ -46,6 +46,7 @@
 }
 
 #effects-working {
+  padding-top: 65px;
 }
 
 #new_amount_text {
@@ -53,7 +54,19 @@
   font-weight: bold;
 }
 
+#wage_ssi_total {
+  display: inline-block;
+  font-weight: bold;
+  padding-left: 40px;
+}
+
 #result {
+  display: inline-block;
+  font-weight: bold;
+  color: red;
+}
+
+#total_result {
   display: inline-block;
   font-weight: bold;
   color: red;
@@ -91,8 +104,7 @@
 
 #buttons_wrapper {
   width: 508px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 25%;
 }
 
 #home_fh_logo {

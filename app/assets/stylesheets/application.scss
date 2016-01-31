@@ -118,12 +118,6 @@ body {
   overflow-x: auto;
 }
 
-.side_panel_desc {
-}
-
-.side_panel_heading {
-}
-
 #footer {
   clear: both;
 }
@@ -131,7 +125,7 @@ body {
 // Side Panel
 
 .fade-panel {
-  min-width: 230px;
+  width: 20%;
   height: 300px;
   background:#F7F7F7;
   float: none;
@@ -142,6 +136,14 @@ body {
 .opener {
   border-radius:0;
   width: 40px;
+}
+
+.side_panel_desc {
+  padding-left: 10px;
+}
+
+.side_panel_heading {
+  padding-left: 10px;
 }
 
 //End Side Panel

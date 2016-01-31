@@ -5,8 +5,8 @@ $(document).on "page:change", ->
   selection = $("#effects-working")
   $("#slide-toggler").click ->
     if $("#subtract-num").is ':hidden'
-      selection.css "padding-top": "115px"
+      selection.css "padding-top": "195px"
     else
-      selection.css "padding-top": "0px"
+      selection.css "padding-top": "65px"
     $('#subtract-num').slideToggle()
     return
