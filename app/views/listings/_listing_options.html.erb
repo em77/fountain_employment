@@ -98,7 +98,7 @@
       method: :get %>
   </div>
   <div class="btn-group" id="all_jobs">
-    <%= link_to "All Jobs", url_for(id: params[:id], order: params[:order]),
+    <%= link_to "All Jobs", listings_path(order: params[:order]),
     class: "btn btn-danger", method: :get %>
   </div>
 </div>
