@@ -1,30 +1,36 @@
-<% provide(:title, "Home") %>
+<body id="home_body">  
+  <% provide(:title, "Home") %>
 
-<div id="logo_greeting_wrapper">
-  <div id="home_fh_logo">
-    <img src="<%= image_path("fountain_house_logo_lg.jpg") %>">
-  </div>
+  <div id="logo_greeting_wrapper">
+    <div id="home_fh_logo">
+      <img src="<%= image_path("fh_logo_white.png") %>">
+    </div>
 
-  <h2 id="greeting">
-    Welcome to the Employment Hub
-    <br>
-    <small>
-      Utilize the navigation bar above to move throughout the site
-    </small>
-  </h2>
-</div>
-
-
-<div id="buttons_wrapper">
-  <div id="company_carousel_container"> 
-    <%= render "company_carousel" %>
-  </div>
-
-  <div id="jobs_button">
-    <%= link_to listings_path, class: "logo_medium btn btn-info" do %>
-      <div class="logo_text">
-        <h2>Current and Upcoming Openings</h2>
+    <div class="container">
+      <div class="jumbotron">
+        <h2 id="greeting">
+          Welcome to the Employment Hub
+          <br>
+          <small>
+            Utilize the navigation bar above to move throughout the site
+          </small>
+        </h2>
       </div>
-    <% end %>
+    </div>
   </div>
-</div>
+
+
+  <div id="buttons_wrapper">
+    <div id="company_carousel_container"> 
+      <%= render "company_carousel" %>
+    </div>
+
+    <div id="jobs_button">
+      <%= link_to listings_path, class: "logo_medium btn btn-info" do %>
+        <div class="logo_text">
+          <h2>Current and Upcoming Openings</h2>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</body>
