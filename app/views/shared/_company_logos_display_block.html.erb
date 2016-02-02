@@ -2,7 +2,7 @@
   <%= link_to company_path(company),
     class: "logo_medium btn btn-info " + yield do %>
     <% if company.logo.exists? %>
-      <div class="logo_text">
+      <div class="logo_text_with_image">
         <%= image_tag company.logo.url(:thumb) %>
         <h5><%= company.description %></h5>
       </div>

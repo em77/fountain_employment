@@ -114,12 +114,24 @@ body {
   transform: translateY(-55%);
 }
 
+.logo_text_with_image {
+  // Vertically center the text in the logo_medium div
+  position: relative;
+  top: 55%;
+  transform: translateY(-55%);
+}
+
 .table-responsive {
   overflow-x: auto;
 }
 
 #footer {
   clear: both;
+}
+
+.paginator {
+  clear: both;
+  text-align: center;
 }
 
 // Side Panel
@@ -140,6 +152,7 @@ body {
 
 .side_panel_desc {
   padding-left: 10px;
+  padding-right: 10px;
 }
 
 .side_panel_heading {

@@ -18,6 +18,9 @@
 /tmp
 .byebug_history
 
+# Ignore company logos
+/public/system/companies/logos/*
+
 # OS X Files
 .DocumentRevisions-V100
 .fseventsd

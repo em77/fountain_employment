@@ -9,8 +9,8 @@
     <center>
       <div class="logo_medium btn btn-info">
         <% if @company.logo.exists? %>
-          <div class="logo_text">
-            <%= image_tag company.logo.url(:thumb) %>
+          <div class="logo_text_with_image">
+            <%= image_tag @company.logo.url(:thumb) %>
             <h5><%= @company.description %></h5>
           </div>
         <% else %>
