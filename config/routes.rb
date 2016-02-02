@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get "pages/subsidy"
   get "pages/ticket_to_work"
   get "pages/trial_work_period"
+  get "pages/sga"
   get "pages/benefits_calc"
   post "pages/benefits_calc"
 

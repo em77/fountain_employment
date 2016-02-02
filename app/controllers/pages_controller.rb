@@ -28,6 +28,9 @@ class PagesController < ApplicationController
   def trial_work_period
   end
 
+  def sga
+  end
+
   def benefits_calc
     respond_to :html, :js
   end
