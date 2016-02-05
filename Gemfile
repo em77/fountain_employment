@@ -33,8 +33,6 @@ gem 'bootstrap-datepicker-rails'
 gem 'faker'
 # Unions between multiple ActiveRecord queries
 gem 'active_record_union'
-# Simple Form
-gem 'simple_form'
 
 gem 'rails-jquery-autocomplete'
 

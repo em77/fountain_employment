@@ -2,9 +2,9 @@
 
 <div id="company_box_display">
   <%= render partial: "shared/company_logos_display_block", locals: {result:
-    @result} %>
+    result} %>
 </div>
 
 <div class="paginator">
-  <%= will_paginate @result, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate result, renderer: BootstrapPagination::Rails %>
 </div>

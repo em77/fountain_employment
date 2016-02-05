@@ -1,5 +1,7 @@
 <% provide(:title, "Edit Company") %>
 
-<%= link_to "Back", company_path(@company) %>
+<div class="form_wrapper">
+  <%= link_to "Back", company_path(company) %>
 
-<%= render "company_form" %>
+  <%= render "company_form" %>
+</div>

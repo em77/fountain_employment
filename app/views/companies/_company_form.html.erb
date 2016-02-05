@@ -1,10 +1,10 @@
-<%= form_for(@company, html: {multipart: true}) do |f| %>
-  <% if @company.errors.any? %>
+<%= form_for(company, html: {multipart: true}) do |f| %>
+  <% if company.errors.any? %>
     <div id="error_explanation">
-      <p><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</p>
+      <p><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</p>
 
       <ul>
-      <% @company.errors.full_messages.each do |message| %>
+      <% company.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -21,8 +21,8 @@
     <%= f.text_area :description, rows: 5, cols: 40 %>
   </div>
 
-  <% if @company.logo.exists? %>
-    <%= image_tag @company.logo.url %><br>
+  <% if company.logo.exists? %>
+    <%= image_tag company.logo.url %><br>
   <% end %>
   <div class="field form-group">
     <%= f.label :logo, "Add a company logo image" %><br>

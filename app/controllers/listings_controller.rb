@@ -4,26 +4,39 @@ class ListingsController < ApplicationController
   autocomplete :company, :name
   include ApplicationHelper
 
+  attr_accessor :result, :listing
+  helper_method :result, :listing
+
   def index
-    if params[:search].nil?
-      @result = Listing.all
-    else
-      @result = search_companies_and_listings(params[:search])
+    @result = search_handler
+    @result = filter_handler(@result)
+    @result = paginated(@result)
+  end
+
+  def search_handler
+    if params[:search].nil? || params[:search].empty?
+      flash.now[:success] = "Displaying all listings"
+      return Listing.all
     end
-    if @result.empty? && params[:search]
+
+    result = Listing.search_companies_and_listings(params[:search])
+
+    if result.empty?
       flash.now[:error] = "No jobs found with that search - Displaying all" +
         " listings"
-      @result = Listing.all
-    elsif @result.empty?
-      flash.now[:error] = "Displaying all listings"
-      @result = Listing.all
+      Listing.all
+    else
+      result
     end
-    @result = show_open_jobs(@result) if params[:open_jobs]
-    @result = employment_filterer(@result, params[:employment_filter]) if
+  end
+
+  def filter_handler(result)
+    result = show_open_jobs(result) if params[:open_jobs]
+    result = employment_filterer(result, params[:employment_filter]) if
       params[:employment_filter]
-    @result = orderer(@result, params[:order], params[:order_direction]) if
+    result = orderer(result, params[:order], params[:order_direction]) if
       params[:order]
-    @result = paginated(@result)
+    result
   end
 
   def new
@@ -47,9 +60,10 @@ class ListingsController < ApplicationController
 
   def update
     @listing = Listing.find(params[:id])
-    @listing.update(article_params)
     if @listing.valid?
       @listing.update(article_params)
+      @listing.wage = decimal_to_int(@listing.wage)
+      @listing.hours_weekly = decimal_to_int(@listing.hours_weekly)
       redirect_to(session.delete(:return_to), notice:
         "Listing edited successfully")
     else
@@ -60,18 +74,8 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(article_params)
-    @listing.job_title = params[:listing][:job_title]
-    @listing.company_id = params[:listing][:company_id]
-    @listing.description = params[:listing][:description]
-    @listing.wage = decimal_to_int(params[:listing][:wage])
-    @listing.working_hours_desc = params[:listing][:working_hours_desc]
-    @listing.hours_weekly = decimal_to_int(params[:listing][:hours_weekly])
-    @listing.shift = params[:listing][:shift]
-    @listing.employment_type = params[:listing][:employment_type]
-    @listing.start_date = params[:listing][:start_date]
-    @listing.est_end_date = params[:listing][:est_end_date]
-    @listing.te_placement_manager = params[:listing][:te_placement_manager]
-    @listing.member_working = params[:listing][:member_working]
+    @listing.wage = decimal_to_int(@listing.wage.to_s)
+    @listing.hours_weekly = decimal_to_int(@listing.hours_weekly.to_s)
     if @listing.valid?
       @listing.save
       redirect_to(session.delete(:return_to), notice:
@@ -85,12 +89,6 @@ class ListingsController < ApplicationController
   rescue_from "ActiveRecord::InvalidForeignKey" do
     flash[:error] = Listing.company_field_error_message
     redirect_to(new_listing_path)
-  end
-
-  def search_companies_and_listings(param)
-    listings = Listing.search(param)
-    company_listings = Company.search(param)
-    listings.union(company_listings)
   end
 
   def employment_filterer(listings, filter)

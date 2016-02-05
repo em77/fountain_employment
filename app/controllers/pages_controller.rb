@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+  attr_accessor :result
+  helper_method :result
+
   def home
     unless Company.count < 2
       @result = Company.all[0..-1]

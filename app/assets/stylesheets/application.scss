@@ -134,6 +134,10 @@ body {
   text-align: center;
 }
 
+.form_wrapper {
+  padding: 10px;
+}
+
 // Side Panel
 
 .fade-panel {
@@ -148,6 +152,7 @@ body {
 .opener {
   border-radius:0;
   width: 40px;
+  clear: left;
 }
 
 .side_panel_desc {

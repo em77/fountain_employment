@@ -1,7 +1,9 @@
 <% provide(:title, "Edit Listing") %>
 
-<h1>Edit Listing</h1>
+<div class="form_wrapper">
+  <h1>Edit Listing</h1>
 
-<%= link_to "Back", listing_path(@listing) %>
+  <%= link_to "Back", listing_path(listing) %>
 
-<%= render "form" %>
+  <%= render "form" %>
+</div>

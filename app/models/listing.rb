@@ -33,4 +33,10 @@ class Listing < ActiveRecord::Base
       all
     end
   end
+
+  def self.search_companies_and_listings(param)
+    listings = Listing.search(param)
+    company_listings = Company.search(param)
+    listings.union(company_listings)
+  end
 end

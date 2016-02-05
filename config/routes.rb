@@ -31,4 +31,6 @@ Rails.application.routes.draw do
   post "pages/benefits_calc"
 
   root to: "pages#home"
+
+  get '*path' => redirect('/')
 end

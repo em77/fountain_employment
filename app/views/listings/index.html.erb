@@ -2,37 +2,41 @@
 
 <% javascript_include_tag "side_panel" %>
 
-<%= render "shared/side_panel_opener" %>
+<% if params[:employment_filter] %>
+  <%= render "shared/side_panel_opener" %>
+<% end %>
 
 <div id="outer_wrapper">
-  <%= render layout: "shared/side_panel" do %>
-    <% case params[:employment_filter] %>
+  <% case params[:employment_filter] %>
     <% when "Social Enterprise" %>
-      <h1 class="side_panel_heading">Social Enterprises</h1>
-      <h5 class="side_panel_desc">
-        Fountain House recently launched a social enterprise and social
-        cooperative program designed to create alternative employment
-        opportunities and encourage entrepreneurship among members.
-        <br><br>
-        Social enterprise achieves a double bottom-line. It offers affordable,
-        top-quality services to clients while providing employees from
-        traditionally marginalized populations with the opportunity to enter the
-        workforce and obtain invaluable job skills.  Through innovative and
-        entrepreneurial ventures, members learn industry specific skills that are
-        transferable in the marketplace.
-      </h5>
-    <% when "Transitional" %>
+      <%= render layout: "shared/side_panel" do %>
+        <h1 class="side_panel_heading">Social Enterprises</h1>
+        <h5 class="side_panel_desc">
+          Fountain House recently launched a social enterprise and social
+          cooperative program designed to create alternative employment
+          opportunities and encourage entrepreneurship among members.
+          <br><br>
+          Social enterprise achieves a double bottom-line. It offers affordable,
+          top-quality services to clients while providing employees from
+          traditionally marginalized populations with the opportunity to enter the
+          workforce and obtain invaluable job skills.  Through innovative and
+          entrepreneurial ventures, members learn industry specific skills that are
+          transferable in the marketplace.
+        </h5>
+      <% end %>
+  <% when "Transitional" %>
+    <%= render layout: "shared/side_panel" do %>
       <h1 class="side_panel_heading">Transitional Employment</h1>
       <h5 class="side_panel_desc">
         TE is a part-time job placement managed by Fountain House at outside employer’s places of business. TEs are usually limited to 6 months. You do not generally need a resume, cover letter or interview to secure a placement. Members receive on-the-job training from workers at Fountain House on the job site. The employer pays members the prevailing wage of the position. To obtain a TE please see one of the placement managers connected to the TE.
       </h5>
-    <% when "Supported" %>
+    <% end %>
+  <% when "Supported" %>
+    <%= render layout: "shared/side_panel" do %>
       <h1 class="side_panel_heading">Supported Employment</h1>
       <h5 class="side_panel_desc">
         SE is a job placement without time-limits. It is generally part-time work. Often the employer has a relationship with Fountain House. Most SEs require a resume and interview. You can receive help with a resume, cover letter and interview prep from the FH Employment Resource Center.
       </h5>
-    <% else %>
-      <h1 class="side_panel_heading">All Listings</h1>
     <% end %>
   <% end %>
 
@@ -41,5 +45,5 @@
 </div>
 
 <center>
-  <%= will_paginate @result, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate result, renderer: BootstrapPagination::Rails %>
 </center>

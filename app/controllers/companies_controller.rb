@@ -1,6 +1,9 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
+  attr_accessor :result, :company
+  helper_method :result, :company
+
   def index
     @result = Company.all
     @result = orderer(@result, params[:order]) if params[:order]

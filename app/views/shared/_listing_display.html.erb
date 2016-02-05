@@ -2,9 +2,9 @@
   <%= render "#{directory}/listing_options" %>
   <table class="table table-striped">
     <%= render "#{directory_table}/table_header" %>
-    <% @result.each do |listing| %>
-      <% @found = listing %>
-      <%= render "#{directory_table}/table_row" %>
+    <% result.each do |listing| %>
+      <%= render partial: "#{directory_table}/table_row", locals: {found:
+        listing} %>
     <% end %>
   </table>
 </div>

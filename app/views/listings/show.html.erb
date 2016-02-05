@@ -1,19 +1,19 @@
-<p><span>Company Name:</span> <%= @listing.company.name %></p>
-<p><span>Job Title:</span> <%= @listing.job_title %></p>
-<p><span>Description:</span> <%= @listing.description %></p>
-<p><span>Wage:</span> <%= @listing.wage %></p>
-<p><span>Schedule:</span> <%= @listing.working_hours_desc %></p>
-<p><span>Hours/week:</span> <%= @listing.hours_weekly %></p>
-<p><span>Shift:</span> <%= @listing.shift %></p>
-<p><span>Employment Type:</span> <%= @listing.employment_type %></p>
-<p><span>Start Date:</span> <%= @listing.start_date %></p>
-<p><span>Est. End Date:</span> <%= @listing.est_end_date %></p>
-<p><span>TE Placement Manager:</span> <%= @listing.te_placement_manager %></p>
-<p><span>Member Working:</span> <%= @listing.member_working %></p>
+<p><span>Company Name:</span> <%= listing.company.name %></p>
+<p><span>Job Title:</span> <%= listing.job_title %></p>
+<p><span>Description:</span> <%= listing.description %></p>
+<p><span>Wage:</span> <%= listing.wage %></p>
+<p><span>Schedule:</span> <%= listing.working_hours_desc %></p>
+<p><span>Hours/week:</span> <%= listing.hours_weekly %></p>
+<p><span>Shift:</span> <%= listing.shift %></p>
+<p><span>Employment Type:</span> <%= listing.employment_type %></p>
+<p><span>Start Date:</span> <%= listing.start_date %></p>
+<p><span>Est. End Date:</span> <%= listing.est_end_date %></p>
+<p><span>TE Placement Manager:</span> <%= listing.te_placement_manager %></p>
+<p><span>Member Working:</span> <%= listing.member_working %></p>
 <br>
 <%= link_to "<< Back to Listings", listings_path %>
 <% if logged_in? %>
-  | <%= link_to "Edit", edit_listing_path(@listing) %>
-  | <%= link_to "Delete", @listing, method: :delete, data: { confirm:
+  | <%= link_to "Edit", edit_listing_path(listing) %>
+  | <%= link_to "Delete", listing, method: :delete, data: { confirm:
     "Are you sure you want to delete?" } %>
 <% end %>

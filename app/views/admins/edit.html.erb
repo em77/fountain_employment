@@ -1,8 +1,10 @@
 <% provide(:title, "Edit Admin") %>
 
-<h1>Editing Admin</h1>
+<div class="form_wrapper">
+  <h1>Editing Admin</h1>
 
-<%= link_to 'Show', @admin %> |
-<%= link_to 'Back', admins_path %>
+  <%= link_to 'Show', @admin %> |
+  <%= link_to 'Back', admins_path %>
 
-<%= render 'form' %>
+  <%= render 'form' %>
+</div>

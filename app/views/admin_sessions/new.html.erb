@@ -1,19 +1,19 @@
 <% provide(:title, "Login") %>
 
-<h1>Login</h1>
+<div class="form_wrapper">
+  <h1>Login</h1>
 
-<%= form_tag admin_sessions_path, method: :post do %>
-  <div class="field form-group">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-    <br>
-  </div>
-  <div class="field form-group">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-    <br>
-  </div>
-  <%= submit_tag "Login", class: "btn btn-default btn-primary" %>
-<% end %>
-
-<%= link_to "Back", listings_path %>
+  <%= form_tag admin_sessions_path, method: :post do %>
+    <div class="field form-group">
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+      <br>
+    </div>
+    <div class="field form-group">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+      <br>
+    </div>
+    <%= submit_tag "Login", class: "btn btn-default btn-primary" %>
+  <% end %>
+</div>
