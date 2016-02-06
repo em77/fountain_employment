@@ -1,91 +1,72 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
+
     <div class="navbar-header">
-      <a class="navbar-brand" href="<%= root_path %>">
+      <button type="button" class="navbar-toggle collapsed"
+        data-toggle="collapse" data-target="#navbar-collapse-area"
+        aria-expanded="false">
         <img alt="FH" src="<%= image_path("fh-logo.jpg") %>">
+      </button>
+      <a class="navbar-brand" id="site_title" href="<%= root_path %>">
+        Employment Hub
       </a>
-      <p class="navbar-brand" id="site_title">Fountain House Employment Hub</p>
     </div>
 
-    <%= render "shared/search_bar" %>
+    <div class="collapse navbar-collapse" id="navbar-collapse-area">
+      <ul class="nav navbar-nav navbar-right">
+        <%= render "shared/search_bar" %>
+        <li>
+          <%= link_to "Companies", companies_path, method: :get %>
+        </li>
+      
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle"
+            data-toggle="dropdown" role="button"
+            aria-haspopup="true" aria-expanded="false">
+            Social Security Benefits <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Benefits Calculator (SSD-SSI-DUAL)",
+              pages_benefits_calc_path %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "PASS Plan", pages_pass_path %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Ticket To Work", pages_ticket_to_work_path %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Trial Work Period", pages_trial_work_period_path %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Substantial Gainful Activity (SGA)",
+              pages_sga_path %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "1619(b)", pages_b_1619_path %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Subsidy or Special Condition", pages_subsidy_path %></li>
+          </ul>
+        </li>
 
-    <div id="buttons_container">
-      <div class="btn-group navbar-button" id="companies_link">
-        <%= link_to "Companies", companies_path, class:
-          "btn btn-default btn-info", method: :get %>
-      </div>
-    
-      <div class="btn-group navbar-button">
-        <button type="button" class="btn btn-info dropdown-toggle"
-          id="ss_dropdown" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          Social Security Benefits <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><%= link_to "Benefits Calculator (SSD-SSI-DUAL)",
-            pages_benefits_calc_path %></li>
-          <li role="separator" class="divider"></li>
-          <li><%= link_to "PASS Plan", pages_pass_path %></li>
-          <li role="separator" class="divider"></li>
-          <li><%= link_to "Ticket To Work", pages_ticket_to_work_path %></li>
-          <li role="separator" class="divider"></li>
-          <li><%= link_to "Trial Work Period", pages_trial_work_period_path %></li>
-          <li role="separator" class="divider"></li>
-          <li><%= link_to "Substantial Gainful Activity (SGA)",
-            pages_sga_path %></li>
-          <li role="separator" class="divider"></li>
-          <li><%= link_to "1619(b)", pages_b_1619_path %></li>
-          <li role="separator" class="divider"></li>
-          <li><%= link_to "Subsidy or Special Condition", pages_subsidy_path %></li>
-        </ul>
-      </div>
-
-      <div class="btn-group navbar-button" id="employment_type_dropdown">
-        <button type="button" class="btn btn-info dropdown-toggle"
-         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Employment Type <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><%= link_to "All Types", listings_path(search: params[:search],
-            order: params[:order], open_jobs: params[:open_jobs]), method: :get %></li>
-          <li role="separator" class="divider"></li>
-          <li><%= link_to "Transitional", listings_path(search: params[:search],
-            order: params[:order], open_jobs: params[:open_jobs], employment_filter:
-            "Transitional"), method: :get %></li>
-          <li role="separator" class="divider"></li>
-          <li><%= link_to "Supported", listings_path(search: params[:search], order:
-            params[:order], open_jobs: params[:open_jobs], employment_filter:
-            "Supported"), method: :get %></li>
-          <li role="separator" class="divider"></li>
-          <li><%= link_to "Social Enterprises", listings_path(search: params[:search], order: params[:order], open_jobs: params[:open_jobs], employment_filter:
-            "Social Enterprise"), method: :get %></li>
-        </ul>
-      </div>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle"
+            data-toggle="dropdown" role="button"
+            aria-haspopup="true" aria-expanded="false">
+            Employment Type <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "All Types", listings_path(search: params[:search],
+              order: params[:order], open_jobs: params[:open_jobs]), method: :get %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Transitional", listings_path(search: params[:search],
+              order: params[:order], open_jobs: params[:open_jobs], employment_filter:
+              "Transitional"), method: :get %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Supported", listings_path(search: params[:search], order:
+              params[:order], open_jobs: params[:open_jobs], employment_filter:
+              "Supported"), method: :get %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Social Enterprises", listings_path(search: params[:search], order: params[:order], open_jobs: params[:open_jobs], employment_filter:
+              "Social Enterprise"), method: :get %></li>
+          </ul>
+        </li>
+      </ul>
     </div>
-
-  <% if false %>
-    <div class="btn-group navbar_buttons">
-      <%= link_to "Social Enterprises",
-        listings_path(search: params[:search], order: params[:order],
-        open_jobs: params[:open_jobs], employment_filter: "Social Enterprise"),
-        class: "btn btn-info", method: :get
-      %>
-    </div>
-    <div class="btn-group navbar_buttons">
-      <%= link_to "Supported Employment",
-        listings_path(search: params[:search], order: params[:order],
-        open_jobs: params[:open_jobs], employment_filter: "Supported"),
-        class: "btn btn-info", method: :get
-      %>
-    </div>
-    <div class="btn-group navbar_buttons">
-      <%= link_to "Transitional Employment",
-        listings_path(search: params[:search], order: params[:order],
-        open_jobs: params[:open_jobs], employment_filter: "Transitional"),
-        class: "btn btn-info", method: :get
-      %>
-    </div>
-  <% end %>
-
   </div>
 </nav>

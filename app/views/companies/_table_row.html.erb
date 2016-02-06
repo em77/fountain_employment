@@ -26,19 +26,3 @@
     <% end %>
   <% end %>
 </tr>
-
-<% if false %>
-  <tr class="table_row">
-    <td><%= found.name %></td>
-    <td><%= found.description %></td>
-    <% if logged_in? %>
-      <td>
-        <%= link_to "Show", found %><br>
-        <%= link_to "Edit", edit_company_path(found) %><br>
-        <%= link_to "Delete", found, method: :delete, data: { confirm:
-          "Are you sure you want to delete this company?" } %><br>
-        <%= link_to "Delete All Listings", destroy_all_listings_companies_path(id: found.id), method: :delete, data: { confirm: "Are you sure you want to delete all listings for this company?" } %>
-      </td>
-    <% end %>
-  </tr>
-<% end %>

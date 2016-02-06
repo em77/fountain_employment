@@ -1,13 +1,12 @@
 <body id="home_body">  
   <% provide(:title, "Home") %>
 
-  <div id="logo_greeting_wrapper">
-    <div id="home_fh_logo">
-      <img src="<%= image_path("fh_logo_white.png") %>">
-    </div>
+  <div class="container-fluid">
+      <div id="home_fh_logo" class="col-md-4">
+        <img src="<%= image_path("fh_logo_white.png") %>">
+      </div>
 
-    <div class="container">
-      <div class="jumbotron">
+      <div class="jumbotron col-xs-6">
         <h2 id="greeting">
           Welcome to the Employment Hub
           <br>
@@ -16,21 +15,21 @@
           </small>
         </h2>
       </div>
-    </div>
-  </div>
 
 
-  <div id="buttons_wrapper">
-    <div id="company_carousel_container"> 
-      <%= render "company_carousel" %>
+    <div id="buttons_wrapper">
+      <div id="company_carousel_container"> 
+        <%= render "company_carousel" %>
+      </div>
+
+      <div id="jobs_button">
+        <%= link_to listings_path, class: "logo_medium btn btn-info" do %>
+          <div class="logo_text">
+            <h2>Current and Upcoming Openings</h2>
+          </div>
+        <% end %>
+      </div>
     </div>
 
-    <div id="jobs_button">
-      <%= link_to listings_path, class: "logo_medium btn btn-info" do %>
-        <div class="logo_text">
-          <h2>Current and Upcoming Openings</h2>
-        </div>
-      <% end %>
-    </div>
   </div>
 </body>

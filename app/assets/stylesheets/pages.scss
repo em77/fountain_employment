@@ -83,9 +83,10 @@
 
 #company_carousel_container {
   width: 204px;
-  display: block;
   float: left;
-  margin-right: 50px;
+  display: inline-block;
+  // display: inline-block;
+  margin-right: 25%;
 }
 
 .carousel-control.left,
@@ -95,10 +96,12 @@
 }
 
 #jobs_button {
-  display: block;
-  float: right;
+  // display: inline-block;
+  // float: right;
   top: 50%;
-  margin-left: 50px;
+  // margin-left: 50px;
+  width: 204px;
+  display: inline-block;
 }
 
 .page_content_box {
@@ -107,24 +110,25 @@
 }
 
 #buttons_wrapper {
-  width: 508px;
-  margin-left: 25%;
+  clear: left;
+  overflow: auto;
+  // width: 508px;
+  margin-left: 15%;
 }
 
 #home_fh_logo {
-  position: relative;
-  float: left;
-  margin-right: 10px;
+  // position: relative;
+  // float: left;
+  // margin-right: -60px;
+  margin-bottom: 20px;
 }
 
 .jumbotron {
-  width: 65%;
-  margin-left: 21%;
+  margin-left: -15px;
 }
 
 #greeting {
-  position: block;
-  float: left;
-  margin-left: 60px;
-  margin-top: -35px;
+  // position: block;
+  // margin-left: 60px;
+  // margin-top: -35px;
 }
