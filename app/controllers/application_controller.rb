@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
   def paginated(to_paginate, num_per_page = 25)
@@ -17,10 +15,14 @@ class ApplicationController < ActionController::Base
   end
 
   def show_open_jobs(result)
-    result.where(member_working: nil)
+    result.where("member_working = ?", "")
   end
 
   def set_referer
     session[:return_to] ||= request.referer
+  end
+
+  def nil_blanker(potential_nil)
+    "" if potential_nil.nil?
   end
 end

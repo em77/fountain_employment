@@ -15,7 +15,7 @@ Company.destroy_all
   company.description = Faker::Company.catch_phrase
   company.save!
   listing = Listing.new
-  listing.member_working = [Faker::Name.name, nil].sample
+  listing.member_working = [Faker::Name.name, ""].sample
   listing.job_title = Faker::Company.profession.capitalize
   listing.description = Faker::Commerce.department
   # listing.working_hours_desc = "M-F 9-5"
