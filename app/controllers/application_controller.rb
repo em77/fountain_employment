@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     session[:return_to] ||= request.referer
   end
 
-  def nil_blanker(potential_nil)
-    "" if potential_nil.nil?
+  def member_working_sanitizer(value)
+    "" if value.nil? || value.blank?
   end
 end

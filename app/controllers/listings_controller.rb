@@ -64,7 +64,7 @@ class ListingsController < ApplicationController
       @listing.update(article_params)
       @listing.wage = decimal_to_int(@listing.wage.to_s)
       @listing.hours_weekly = decimal_to_int(@listing.hours_weekly.to_s)
-      @listing.member_working = nil_blanker(@listing.member_working)
+      @listing.member_working = member_working_sanitizer(@listing.member_working)
       redirect_to(session.delete(:return_to), notice:
         "Listing edited successfully")
     else
@@ -77,7 +77,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(article_params)
     @listing.wage = decimal_to_int(@listing.wage.to_s)
     @listing.hours_weekly = decimal_to_int(@listing.hours_weekly.to_s)
-    @listing.member_working = nil_blanker(@listing.member_working)
+    @listing.member_working = member_working_sanitizer(@listing.member_working)
     if @listing.valid?
       @listing.save
       redirect_to(session.delete(:return_to), notice:
