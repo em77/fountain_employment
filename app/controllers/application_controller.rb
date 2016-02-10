@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
   end
 
   def member_working_sanitizer(value)
-    "" if value.nil? || value.blank?
+    if value.nil? || value.blank?
+      ""
+    else
+      value
+    end
   end
 end
