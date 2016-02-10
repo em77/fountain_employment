@@ -34,8 +34,11 @@ class ListingsController < ApplicationController
     result = show_open_jobs(result) if params[:open_jobs]
     result = employment_filterer(result, params[:employment_filter]) if
       params[:employment_filter]
-    result = orderer(result, params[:order], params[:order_direction]) if
-      params[:order]
+    if params[:order]
+      result = orderer(result, params[:order], params[:order_direction])
+    else
+      result = orderer(result, "company_id")
+    end
     result
   end
 

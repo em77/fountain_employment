@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
 
   def index
     @result = Company.all
-    @result = orderer(@result, params[:order]) if params[:order]
+    @result = orderer(@result, "name")
     @result = paginated(@result, 24)
   end
 

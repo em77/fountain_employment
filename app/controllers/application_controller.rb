@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
     if order_by == "company_id"
       result_ordered = result.joins(:company).order("companies.name asc")
     elsif order_by == "start_date" || order_by == "est_end_date"
-      result_ordered = result.sort_by{|listing| date_order_formatter(listing.send(order_by.to_sym))}
+      result_ordered = result.sort_by {|listing| date_order_formatter\
+        (listing.send(order_by.to_sym))}
       result_ordered = result_ordered.reverse if order_direction == "desc"
     else
       result_ordered = result.order("#{order_by} #{order_direction}")
