@@ -4,49 +4,52 @@
 
 <%= render "shared/side_panel_opener" %>
 
-<%= render layout: "shared/side_panel" do %>
-  <h1>
-    Substantial Gainful Activity (SGA)
-  </h1>
-<% end %>
+<div class="page_content_wrapper">
 
-<div class="page_content_box">
-  <p>SGA is the amount of monthly Earned Income an employee can make in a single month (4 weeks) and still maintain their full SSD check. If an employee makes more than the SGA in unearned income in a single month then they will no longer receive a check for SSD next month. The exceptions to this rule would be getting a subsidy letter from Fountain House Employment Resource Center. See someone in the Employment Resource Center for more information on Subsidy Letters.</p>
+  <%= render layout: "shared/side_panel" do %>
+    <h1>
+      Substantial Gainful Activity (SGA)
+    </h1>
+  <% end %>
 
-  <h4 class="twp_table_heading">
-    SGA Amounts
-  </h4>
+  <div class="page_content_box">
+    <p>SGA is the amount of monthly Earned Income an employee can make in a single month (4 weeks) and still maintain their full SSD check. If an employee makes more than the SGA in unearned income in a single month then they will no longer receive a check for SSD next month. The exceptions to this rule would be getting a subsidy letter from Fountain House Employment Resource Center. See someone in the Employment Resource Center for more information on Subsidy Letters.</p>
 
-  <div class="twp_table">
-    <table class="table table-striped table-bordered">
-      <tr class="info table_row">
-        <td><strong>Year</strong></td>
-        <td><strong>Monthly Earnings</strong></td>
-      </tr>
-      <tr class="table_row">
-        <td>2011</td>
-        <td>1,000</td>
-      </tr>
-      <tr class="table_row">
-        <td>2012</td>
-        <td>1,010</td>
-      </tr>
-      <tr class="table_row">
-        <td>2013</td>
-        <td>1,040</td>
-      </tr>
-      <tr class="table_row">
-        <td>2014</td>
-        <td>1,070</td>
-      </tr>
-      <tr class="table_row">
-        <td>2015</td>
-        <td>1,090</td>
-      </tr>
-      <tr class="table_row">
-        <td><strong>2016</strong></td>
-        <td><strong>1,130</strong></td>
-      </tr>
-    </table>
+    <h4 class="twp_table_heading">
+      SGA Amounts
+    </h4>
+
+    <div class="twp_table">
+      <table class="table table-striped table-bordered">
+        <tr class="info table_row">
+          <td><strong>Year</strong></td>
+          <td><strong>Monthly Earnings</strong></td>
+        </tr>
+        <tr class="table_row">
+          <td>2011</td>
+          <td>1,000</td>
+        </tr>
+        <tr class="table_row">
+          <td>2012</td>
+          <td>1,010</td>
+        </tr>
+        <tr class="table_row">
+          <td>2013</td>
+          <td>1,040</td>
+        </tr>
+        <tr class="table_row">
+          <td>2014</td>
+          <td>1,070</td>
+        </tr>
+        <tr class="table_row">
+          <td>2015</td>
+          <td>1,090</td>
+        </tr>
+        <tr class="table_row">
+          <td><strong>2016</strong></td>
+          <td><strong>1,130</strong></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

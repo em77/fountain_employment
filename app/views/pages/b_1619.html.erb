@@ -4,30 +4,33 @@
 
 <%= render "shared/side_panel_opener" %>
 
-<%= render layout: "shared/side_panel" do %>
-  <h1>
-    Medicaid While Working
-    <br>
-    <small>Section 1619(b)</small>
-  </h1>
-<% end %>
+<div class="page_content_wrapper">
 
-<div class="page_content_box">
-  <h4>What is 1619(b) and how can it help?</h4>
-  <p>Continued Medicaid coverage, through section 1619(b), is one of the most
-    important <em>SSI work incentives</em>. Section 1619(b) provides Medicaid to
-    persons who lose cash SSI because countable earnings equal or exceed the SSI
-    payment rate.</p>
-  <h4>How do you qualify?</h4>
-  <p>In order to qualify you must meet the all of the following criteria:</p>
-  <ul class="list-group">
-    <li class="list-group-item">1. Continue to be blind or disabled.</li>
-    <li class="list-group-item">2. Have unearned income less than SSI limit.</li>
-    <li class="list-group-item">3. Have resources within SSI limits.</li>
-    <li class="list-group-item">4. Meet a prior month requirement.</li>
-    <li class="list-group-item">5. Meet a Medicaid use test.</li>
-    <li class="list-group-item">6. Meet and income “threshold” test.</li>
-  </ul>
-  <p class="red">For more information on 1619(b) please visit the <%= 
-    link_to "Social Security Administration", "https://www.ssa.gov" %></p>
+  <%= render layout: "shared/side_panel" do %>
+    <h1>
+      Medicaid While Working
+      <br>
+      <small>Section 1619(b)</small>
+    </h1>
+  <% end %>
+
+  <div class="page_content_box">
+    <h4>What is 1619(b) and how can it help?</h4>
+    <p>Continued Medicaid coverage, through section 1619(b), is one of the most
+      important <em>SSI work incentives</em>. Section 1619(b) provides Medicaid to
+      persons who lose cash SSI because countable earnings equal or exceed the SSI
+      payment rate.</p>
+    <h4>How do you qualify?</h4>
+    <p>In order to qualify you must meet the all of the following criteria:</p>
+    <ul class="list-group">
+      <li class="list-group-item">1. Continue to be blind or disabled.</li>
+      <li class="list-group-item">2. Have unearned income less than SSI limit.</li>
+      <li class="list-group-item">3. Have resources within SSI limits.</li>
+      <li class="list-group-item">4. Meet a prior month requirement.</li>
+      <li class="list-group-item">5. Meet a Medicaid use test.</li>
+      <li class="list-group-item">6. Meet and income “threshold” test.</li>
+    </ul>
+    <p class="red">For more information on 1619(b) please visit the <%= 
+      link_to "Social Security Administration", "https://www.ssa.gov" %></p>
+  </div>
 </div>
