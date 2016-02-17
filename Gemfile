@@ -22,7 +22,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # For uploading files
 gem 'paperclip'
 # For AWS S3
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 # For authentication
 gem 'sorcery'
 # Pagination

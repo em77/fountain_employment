@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_action :set_referer, only: [:destroy, :edit, :new]
+  before_action :normalize_create_update_params, only: [:update, :create]
   autocomplete :company, :name
   include ApplicationHelper
 
@@ -64,10 +65,7 @@ class ListingsController < ApplicationController
   def update
     @listing = Listing.find(params[:id])
     if @listing.valid?
-      @listing.update(article_params)
-      @listing.wage = decimal_to_int(@listing.wage.to_s)
-      @listing.hours_weekly = decimal_to_int(@listing.hours_weekly.to_s)
-      @listing.member_working = member_working_sanitizer(@listing.member_working)
+      @listing.update(listing_params)
       redirect_to(session.delete(:return_to), notice:
         "Listing edited successfully")
     else
@@ -77,10 +75,7 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.new(article_params)
-    @listing.wage = decimal_to_int(@listing.wage.to_s)
-    @listing.hours_weekly = decimal_to_int(@listing.hours_weekly.to_s)
-    @listing.member_working = member_working_sanitizer(@listing.member_working)
+    @listing = Listing.new(listing_params)
     if @listing.valid?
       @listing.save
       redirect_to(session.delete(:return_to), notice:
@@ -105,9 +100,17 @@ class ListingsController < ApplicationController
       @listing = Listing.find(params[:id])
     end
 
-    def article_params
+    def normalize_create_update_params
+      params[:listing][:wage] = decimal_to_int(params[:listing][:wage].to_s)
+      params[:listing][:hours_weekly] = decimal_to_int(params[:listing]\
+        [:hours_weekly].to_s)
+      params[:listing][:member_working] = member_working_sanitizer(\
+        params[:listing][:member_working])
+    end
+
+    def listing_params
       params.require(:listing).permit(:job_title, :company_id, :description,
         :wage, :working_hours_desc, :hours_weekly, :shift, :employment_type,
-        :start_date, :est_end_date, :te_placement_manager, :member_working)      
+        :start_date, :est_end_date, :te_placement_manager, :member_working)
     end    
 end
