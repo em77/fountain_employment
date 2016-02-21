@@ -8,22 +8,6 @@
 
 <div id="outer_wrapper">
   <% case params[:employment_filter] %>
-    <% when "Social Enterprise" %>
-      <%= render layout: "shared/side_panel" do %>
-        <h1 class="side_panel_heading">Social Enterprises</h1>
-        <h5 class="side_panel_desc">
-          Fountain House recently launched a social enterprise and social
-          cooperative program designed to create alternative employment
-          opportunities and encourage entrepreneurship among members.
-          <br><br>
-          Social enterprise achieves a double bottom-line. It offers affordable,
-          top-quality services to clients while providing employees from
-          traditionally marginalized populations with the opportunity to enter the
-          workforce and obtain invaluable job skills.  Through innovative and
-          entrepreneurial ventures, members learn industry specific skills that are
-          transferable in the marketplace.
-        </h5>
-      <% end %>
   <% when "Transitional" %>
     <%= render layout: "shared/side_panel" do %>
       <h1 class="side_panel_heading">Transitional Employment</h1>

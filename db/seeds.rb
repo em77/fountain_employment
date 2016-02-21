@@ -13,6 +13,7 @@ Company.destroy_all
   company = Company.new
   company.name = Faker::Company.name
   company.description = Faker::Company.catch_phrase
+  company.social_enterprise = [false, false, true].sample
   company.save!
   listing = Listing.new
   listing.member_working = [Faker::Name.name, ""].sample
@@ -20,7 +21,7 @@ Company.destroy_all
   listing.description = Faker::Commerce.department
   listing.hours_weekly = Random.new.rand(500..4000)
   listing.shift = ["Morning", "Afternoon", "Evening", "Overnight"].sample
-  listing.employment_type = ["Transitional", "Supported", "Social Enterprise"].sample
+  listing.employment_type = ["Transitional", "Supported"].sample
   start_date = Faker::Date.between(Date.today, Faker::Date.forward(30))
   listing.start_date = start_date.strftime("%m-%d-%Y")
   est_end_date = Faker::Date.between(Faker::Date.forward(90), 

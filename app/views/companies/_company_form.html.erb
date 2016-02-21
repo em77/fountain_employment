@@ -21,6 +21,11 @@
     <%= f.text_area :description, rows: 5, cols: 40 %>
   </div>
 
+  <div class="field form-group">
+    <%= f.label "Social Enterprise" %> &nbsp;&nbsp;
+    <%= f.check_box :social_enterprise %>
+  </div>
+
   <% if company.logo.exists? %>
     <%= image_tag company.logo.url %><br>
   <% end %>

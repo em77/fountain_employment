@@ -5,7 +5,11 @@ class CompaniesController < ApplicationController
   helper_method :result, :company
 
   def index
-    @result = Company.all
+    if params[:social_enterprise]
+      @result = Company.where("social_enterprise = ?", true)
+    else
+      @result = Company.all
+    end
     @result = orderer(@result, "name")
     @result = paginated(@result, 24)
   end
@@ -65,7 +69,6 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    @company.update(company_params)
     if @company.valid?
       @company.update(company_params)
       redirect_to(company_path(@company), notice: "Company edited successfully")
@@ -78,7 +81,8 @@ class CompaniesController < ApplicationController
   private
 
     def company_params
-      params.require(:company).permit(:name, :description, :logo)
+      params.require(:company).permit(:name, :description, :social_enterprise,
+        :logo)
     end
 
     def set_company

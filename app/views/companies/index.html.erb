@@ -1,8 +1,37 @@
 <% provide(:title, "Companies") %>
 
-<div id="company_box_display">
-  <%= render partial: "shared/company_logos_display_block", locals: {result:
-    result} %>
+<% javascript_include_tag "side_panel" %>
+
+<%= render "shared/side_panel_opener" %>
+
+<div id="outer_wrapper">
+  <% case params[:social_enterprise] %>
+  <% when "true" %>
+    <%= render layout: "shared/side_panel" do %>
+      <h1 class="side_panel_heading">Social Enterprises</h1>
+      <h5 class="side_panel_desc">
+        Fountain House recently launched a social enterprise and social
+        cooperative program designed to create alternative employment
+        opportunities and encourage entrepreneurship among members.
+        <br><br>
+        Social enterprise achieves a double bottom-line. It offers affordable,
+        top-quality services to clients while providing employees from
+        traditionally marginalized populations with the opportunity to enter the
+        workforce and obtain invaluable job skills.  Through innovative and
+        entrepreneurial ventures, members learn industry specific skills that are
+        transferable in the marketplace.
+      </h5>
+    <% end %>
+  <% else %>
+    <%= render layout: "shared/side_panel" do %>
+      <h1 class="side_panel_heading">All Companies</h1>
+    <% end %>
+  <% end %>
+
+  <div id="company_box_display">
+    <%= render partial: "shared/company_logos_display_block", locals: {result:
+      result} %>
+  </div>
 </div>
 
 <div class="paginator">
