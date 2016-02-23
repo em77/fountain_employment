@@ -1,14 +1,7 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
-  before_action :zero_admins_or_authenticated, only: [:new, :create]
+  before_action :zero_admins_or_authenticated
   before_action :require_login, except: [:new, :create]
-
-  def zero_admins_or_authenticated
-    unless Admin.count == 0 || current_user
-      redirect_to root_path
-      return false
-    end
-  end
 
   # GET /admins
   # GET /admins.json
