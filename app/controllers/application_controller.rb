@@ -1,13 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  def zero_admins_or_authenticated
-    unless Admin.count == 0 || current_user
-      redirect_to root_path
-      return false
-    end
-  end
-
   def paginated(to_paginate, num_per_page = 25)
     to_paginate.paginate(page: params[:page], per_page: num_per_page)
   end
