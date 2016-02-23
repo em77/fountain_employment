@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :zero_admins_or_authenticated, except: [:index, :show]
+  before_action :require_login, except: [:index, :show]
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   attr_accessor :result, :company

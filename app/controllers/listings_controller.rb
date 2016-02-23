@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :zero_admins_or_authenticated,
+  before_action :require_login,
     only: [:new, :create, :edit, :destroy, :update]
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_action :set_referer, only: [:destroy, :edit, :new]
