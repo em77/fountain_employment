@@ -11,7 +11,9 @@ module ApplicationHelper
   def decimalize(integer)
     return "0.00" if integer == 0
     return "" if integer == nil
-    integer.to_s[0..-3] + "." + integer.to_s[-2..-1]
+    num = integer.to_s
+    num += "0" if num.size < 2
+    num[0..-3] + "." + num[-2..-1]
   end
 
   def decimal_to_int(string)
