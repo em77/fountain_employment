@@ -1,9 +1,9 @@
 <p><span>Company Name:</span> <%= listing.company.name %></p>
 <p><span>Job Title:</span> <%= listing.job_title %></p>
 <p><span>Description:</span> <%= listing.description %></p>
-<p><span>Wage:</span> <%= listing.wage %></p>
+<p><span>Wage:</span> <%= decimalize(listing.wage) %></p>
 <p><span>Schedule:</span> <%= listing.working_hours_desc %></p>
-<p><span>Hours/week:</span> <%= listing.hours_weekly %></p>
+<p><span>Hours/week:</span> <%= decimalize(listing.hours_weekly) %></p>
 <p><span>Shift:</span> <%= listing.shift %></p>
 <p><span>Employment Type:</span> <%= listing.employment_type %></p>
 <p><span>Start Date:</span> <%= listing.start_date %></p>
