@@ -1,7 +1,7 @@
 <tr class="table_row">
   <td><%= found.job_title %></td>
   <td><%= found.description %></td>
-  <td><%= decimalize(found.wage) %></td>
+  <td><%= zero_wage_handler(found.wage) %></td>
   <td><%= found.working_hours_desc %></td>
   <td><%= decimalize(found.hours_weekly) %></td>
   <td><%= found.shift %></td>
