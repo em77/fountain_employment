@@ -5,19 +5,21 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= render partial: "shared/google_analytics" %>
 </head>
 <body>
-<%= render "shared/navbar" %>
+  <%= render "shared/navbar" %>
 
-<% flash.each do |key, value| %>
-  <div class="<%= flash_class(key.to_sym) %>">
-    <%= sanitize(value) %>
-  </div>
-<% end %>
+  <% flash.each do |key, value| %>
+    <div class="<%= flash_class(key.to_sym) %>">
+      <%= sanitize(value) %>
+    </div>
+  <% end %>
 
-<%= yield %>
+  <%= yield %>
 
-<%= render "shared/footer" %>
+  <%= render "shared/footer" %>
 
+  <%= render partial: "shared/google_analytics_pageview" %>
 </body>
 </html>
