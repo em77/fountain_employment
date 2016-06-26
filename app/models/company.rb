@@ -1,6 +1,7 @@
 class Company < ActiveRecord::Base
   has_many :listings, inverse_of: :company
-  has_attached_file :logo, styles: { medium: "200x200>", thumb: "100x100>" }
+  has_attached_file :logo, styles: { medium: "200x200>", thumb: "100x100>" },
+    s3_protocol: :https
   validates_attachment_content_type :logo,
     content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   include PgSearch
