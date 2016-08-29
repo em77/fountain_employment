@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.2'
+gem 'rails', '4.2.7.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 gem 'bootstrap-sass'
@@ -22,7 +22,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # For uploading files
 gem 'paperclip'
 # For AWS S3
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk', '< 3.0'
 # For authentication
 gem 'sorcery'
 # Pagination
