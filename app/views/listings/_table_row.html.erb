@@ -1,31 +1,29 @@
-<tr class="table_row">
-  <td><%= link_to found.company.name, company_path(found.company_id) %></td>
-  <td><%= found.job_title %></td>
-  <td><%= found.description %></td>
-  <td><%= zero_wage_handler(found.wage) %></td>
-  <td><%= found.working_hours_desc %></td>
-  <td><%= decimalize(found.hours_weekly) %></td>
-  <td><%= found.shift %></td>
-  <% unless params[:employment_filter] %>
-    <td><%= found.employment_type %></td>
-  <% end %>
-  <td><%= found.start_date %></td>
-  <td><%= found.est_end_date %></td>
-  <td><%= found.te_placement_manager %></td>
-  <% if logged_in? %>
-    <td><%= found.member_working %></td>
-    <td>
-      <%= link_to "Show", found %><br>
-      <%= link_to "Edit", edit_listing_path(found) %><br>
-      <%= link_to "Delete", found, method: :delete, data: { confirm:
-        "Are you sure you want to delete?" } %>
-    </td>
+<td><%= link_to found.company.name, company_path(found.company_id) %></td>
+<td><%= found.job_title %></td>
+<td><%= found.description %></td>
+<td><%= zero_wage_handler(found.wage) %></td>
+<td><%= found.working_hours_desc %></td>
+<td><%= decimalize(found.hours_weekly) %></td>
+<td><%= found.shift %></td>
+<% unless params[:employment_filter] %>
+  <td><%= found.employment_type %></td>
+<% end %>
+<td><%= found.start_date %></td>
+<td><%= found.est_end_date %></td>
+<td><%= found.te_placement_manager %></td>
+<% if logged_in? %>
+  <td><%= found.member_working %></td>
+  <td>
+    <%= link_to "Show", found %><br>
+    <%= link_to "Edit", edit_listing_path(found) %><br>
+    <%= link_to "Delete", found, method: :delete, data: { confirm:
+      "Are you sure you want to delete?" } %>
+  </td>
+<% else %>
+  <% case found.member_working %>
+  <% when "" %>
+    <td>Yes</td>
   <% else %>
-    <% case found.member_working %>
-    <% when "" %>
-      <td>Yes</td>
-    <% else %>
-      <td>No</td>
-    <% end %>
+    <td>No</td>
   <% end %>
-</tr>
+<% end %>

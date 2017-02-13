@@ -1,10 +1,16 @@
 <div id="listings_table" class="table-responsive">
   <%= render "#{directory}/listing_options" %>
-  <table class="table table-striped">
+  <table class="table">
     <%= render "#{directory_table}/table_header" %>
     <% result.each do |listing| %>
-      <%= render partial: "#{directory_table}/table_row", locals: {found:
-        listing} %>
+      <% if listing.employment_type == "Supported" %>
+        <tr class="table_row supported_emp">
+      <% else %>
+        <tr class="table_row">
+      <% end %>
+        <%= render partial: "#{directory_table}/table_row", locals: {found:
+          listing} %>
+        </tr>
     <% end %>
   </table>
 </div>
