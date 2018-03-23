@@ -21,9 +21,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'nokogiri', '~> 1.8.0'
 # For uploading files
-gem 'paperclip'
+gem 'paperclip', '~> 6'
 # For AWS S3
-gem 'aws-sdk', '< 3.0'
+gem 'aws-sdk-s3'
 # For authentication
 gem 'sorcery'
 # Pagination
