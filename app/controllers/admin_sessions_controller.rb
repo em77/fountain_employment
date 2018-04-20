@@ -8,7 +8,7 @@ class AdminSessionsController < ApplicationController
     if login(params[:email], params[:password])
       redirect_to(session.delete(:return_to), notice: "Logged in successfully")
     else
-      flash.now.error = "Login failed"
+      flash[:error] = "Your e-mail or password is incorrect - Please try again"
       render action: :new
     end
   end
