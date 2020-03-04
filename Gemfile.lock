@@ -145,7 +145,7 @@ GEM
       activerecord (>= 3.1)
       activesupport (>= 3.1)
       arel
-    puma (3.12.2)
+    puma (3.12.4)
     rack (1.6.12)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -258,7 +258,7 @@ DEPENDENCIES
   paperclip (~> 6)
   pg
   pg_search
-  puma (~> 3.11)
+  puma (~> 3.12)
   rack-timeout
   rails (= 4.2.11.1)
   rails-jquery-autocomplete
