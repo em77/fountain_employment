@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.9'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.11.1'
+gem 'rails', '4.2.11.2'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 gem 'bootstrap-sass'
@@ -55,7 +55,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
-gem 'rack-timeout'
 
 
 group :development, :test do
@@ -75,5 +74,5 @@ group :development do
 end
 
 group :production do
-  gem 'rails_12factor'
+  gem 'rack-timeout'
 end
