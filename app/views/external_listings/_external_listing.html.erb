@@ -17,5 +17,6 @@
     <strong>Pay rate:</strong> <%= external_listing.pay_rate %><br>
     <strong>Job type:</strong> <%= external_listing.job_type %><br>
     <strong>Number of hires for this role:</strong> <%= external_listing.no_of_hires %><br>
+    <strong>Date posted:</strong> <%= external_listing.created_at.to_date.strftime("%b. %d, %Y") %><br>
   </div>
 </div>

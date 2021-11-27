@@ -6,7 +6,7 @@ class ExternalListingsController < ApplicationController
   helper_method :external_listing, :external_listings
 
   def index
-    @external_listings = paginated(ExternalListing.all)
+    @external_listings = paginated(ExternalListing.all.order(created_at: :desc))
   end
 
   def new
