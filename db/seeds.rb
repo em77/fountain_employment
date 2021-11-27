@@ -32,3 +32,17 @@ Company.destroy_all
   listing.company_id = Random.new.rand(Company.first[:id]..Company.last[:id])
   listing.save!
 end
+
+ExternalListing.destroy_all
+
+50.times do
+  external_listing = ExternalListing.new
+  external_listing.job_title = Faker::Job.position
+  external_listing.company_name = Faker::Company.name
+  external_listing.location = Faker::Nation.capital_city
+  external_listing.job_listing_url = Faker::Internet.url
+  external_listing.pay_rate = "#{Random.new.rand(10..25)}/hour"
+  external_listing.job_type = ["Full-time", "Part-time"].sample
+  external_listing.no_of_hires = Random.new.rand(1..25)
+  external_listing.save!
+end

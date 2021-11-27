@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   resources :listings
 
+  resources :external_listings, only: [:new, :create, :index, :edit, :update, :destroy]
+
   get "login" => "admin_sessions#new"
   get "logout" => "admin_sessions#destroy"
 

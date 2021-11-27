@@ -1,6 +1,7 @@
 <h5 id="footer" class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid">
     <% if logged_in? %>
+      <%= link_to "Post New External Listing", new_external_listing_path, class: "footer_link" %>
       <%= link_to "Post New Listing", new_listing_path, class: "footer_link" %>
       <%= link_to "Create New Company", new_company_path, class: "footer_link" %>
       <%= link_to "Administrator Panel", admins_path, class: "footer_link" %>

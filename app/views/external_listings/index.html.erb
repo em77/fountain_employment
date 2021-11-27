@@ -1,0 +1,28 @@
+<% provide(:title, "External Job Listings") %>
+
+<% javascript_include_tag "side_panel" %>
+
+<%= render "shared/side_panel_opener" %>
+
+<div class="page_content_wrapper">
+  <%= render layout: "shared/side_panel" do %>
+    <h1 class="side_panel_heading">External Job Listings</h1>
+    <h5 class="side_panel_desc">
+      <p>A curated list of postings from around the web.</p>
+
+      <p>Fountain House does not have partnerships with any of these companies.</p>
+    </h5>
+  <% end %>
+
+  <div class="page_content_box">
+    <% if external_listings.empty? %>
+      <p>No external job listings are currently posted.</p>
+    <% else %>
+      <%= render external_listings %>
+    <% end %>
+  </div>
+</div>
+
+<center>
+  <%= will_paginate external_listings, renderer: BootstrapPagination::Rails %>
+</center>

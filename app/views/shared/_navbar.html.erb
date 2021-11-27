@@ -73,6 +73,8 @@
             <li><%= link_to "Supported", listings_path(search: params[:search], order:
               params[:order], open_jobs: params[:open_jobs], employment_filter:
               "Supported"), method: :get %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "External Job Listings", external_listings_path %></li>
           </ul>
         </li>
       </ul>

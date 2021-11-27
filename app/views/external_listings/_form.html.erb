@@ -1,0 +1,55 @@
+<%= form_for(external_listing) do |f| %>
+  <% if external_listing.errors.any? %>
+    <div id="error_explanation">
+      <p><%= pluralize(external_listing.errors.count, "error") %> prohibited this external listing from being saved:</p>
+
+      <ul>
+      <% external_listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :job_title, "Job title" %><br>
+    <%= f.text_field :job_title, class: "form-control", required: true %>
+    <div class="instruction-text">e.g. Delivery driver</div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :company_name, "Company name" %><br>
+    <%= f.text_field :company_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :location, "Location" %><br>
+    <%= f.text_field :location, class: "form-control", required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :job_listing_url, "Job listing URL" %><br>
+    <%= f.text_field :job_listing_url, class: "form-control", required: true,
+      placeholder: "https://example.com",
+      pattern: "[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?" %>
+    <div class="instruction-text">Please input only the URL or the link will not work</div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pay_rate, "Pay rate" %><br>
+    <%= f.text_field :pay_rate, class: "form-control", required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :job_type, "Job type" %><br>
+    <%= f.text_field :job_type, class: "form-control", required: true %>
+    <div class="instruction-text">e.g. Part-time, Full-time</div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :no_of_hires, "Number of hires for this role" %><br>
+    <%= f.text_field :no_of_hires, class: "form-control", required: true %>
+  </div>
+
+  <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+<% end %>

@@ -1,0 +1,17 @@
+<div class="panel panel-primary external-listing-panel">
+  <div class="panel-body">
+    <%= link_to "#{external_listing.job_title}", external_listing.job_listing_url,
+        target: "_blank" %>
+    <% if logged_in? %>
+      - <%= link_to "(edit)", edit_external_listing_path(external_listing) %>
+      <%= link_to "(delete)", external_listing, method: :delete,
+        data: { confirm: "Are you sure you want to delete?" } %>
+    <% end %>
+    <br>
+    <strong>Company name:</strong> <%= external_listing.company_name %><br>
+    <strong>Location:</strong> <%= external_listing.location %><br>
+    <strong>Pay rate:</strong> <%= external_listing.pay_rate %><br>
+    <strong>Job type:</strong> <%= external_listing.job_type %><br>
+    <strong>Number of hires for this role:</strong> <%= external_listing.no_of_hires %><br>
+  </div>
+</div>
